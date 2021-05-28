@@ -1,0 +1,148 @@
+{% extends "patients/blank.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<!-- Mirrored from medifab.dreamguystech.com/blue/appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:00:20 GMT -->
+
+    
+    <body>
+        <!-- Header -->
+        
+		 <!-- Content -->
+         {% block content %}
+        <div class="main-content account-content">
+            <div class="content">
+                <div class="container">
+                    <div class="account-box">
+                        <div class="appointment">
+                            
+                            <div class="tab-content">
+                                
+                                <div >
+                                    <form action="{% url 'appointment' doctor.id %}" method="POST"> 
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <span class="form-label">Date</span>
+                                            <input id="date" class="form-control" onchange="date_selected()" type="date">
+                                            <span style="color: red;" id="errordate"></span>
+    
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="form-label">Slot</span>
+                                            <select class="form-control" id="slot" style="text-align: center;">
+                                                <option>choose...</option>
+    
+    
+                                            </select>
+                                            <span style="color: red;" id="errorhour"></span>
+                                            <span style="color: red;" id="exists"></span>
+    
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group text-center m-b-0">
+                                            <button class="btn btn-primary account-btn" type="button" id="book" onclick="booking()">Confirm Booking</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+           $(function () {
+				var dtToday = new Date();
+
+				var month = dtToday.getMonth() + 1;
+				var day = dtToday.getDate();
+				var year = dtToday.getFullYear();
+				if (month < 10)
+					month = '0' + month.toString();
+				if (day < 10)
+					day = '0' + day.toString();
+
+				var maxDate = year + '-' + month + '-' + day;
+				$('#date').attr('min', maxDate);
+			});
+
+            let slots = []
+			'{% for slot in slots.Slot_decided %}'
+			slots.push('{{slot}}')
+			'{% endfor %}'
+			function date_selected() {
+				var date_selected = $('#date').val()
+				$.ajax({
+					url: '/time-slots/' + '{{doctor.id}}/',
+					method: 'GET',
+					data: { 'date_selected': date_selected },
+					dataType: 'json',
+					success: function (data) {
+						$('#slot').html('<option value="choose...">choose...</option>')
+						for (i = 0; i < slots.length; i++) {
+							if (data.used_slots.includes(slots[i]))
+								$('#slot').append('<option style="color:red" value="' + slots[i] + '" disabled>' + slots[i] + '</option>')
+							else
+								$('#slot').append('<option  value="' + slots[i] + '">' + slots[i] + '</option>')
+
+						}
+
+					}
+				})
+			}
+
+            function booking(){
+
+                var date= $('#date').val()
+                var slot= $('#slot').val()
+
+                var data_data = {
+					'csrfmiddlewaretoken': '{{csrf_token}}',
+					'slot': slot,
+					'date': date,
+	
+				}
+                if (slot == 'choose...') {
+					$('#errorhour').html('Please choose a slot to book')
+				}
+			
+				else if (date == "") {
+					$("#errordate").html("Please choose a date")
+				}
+
+                else {
+						$.ajax({
+							url: '/appointment/' + '{{doctor.id}}' + "/",
+							method: 'POST',
+							data: data_data,
+							dataType: 'json',
+							success: function (data) {
+								if(data == 'true') {
+									window.location.replace('')
+								}
+							
+							}
+						})
+					}
+
+            }
+
+
+        </script>
+        
+
+        {% endblock content %}
+		<!-- Content /-->
+			
+        <!-- Footer -->
+    
+		
+    </body>
+
+
+<!-- Mirrored from medifab.dreamguystech.com/blue/appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:00:26 GMT -->
+</html>

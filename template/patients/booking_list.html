@@ -1,0 +1,90 @@
+{% extends "patients/blank.html" %}
+
+{% block content %}
+<div class="row ">
+  <div class="col-md-8 col-sm-12">
+    <div class="card  card-box align-items-center">
+      <div class="card-head">
+        <header class="font-weight-bold">BOOKING DETAILS</header>
+        
+      </div>
+      <div class="card-body ">
+        <div class="row table-padding">
+          
+          
+        </div>
+        <div class="table-responsive">
+          <table
+            class="table table-striped table-bordered table-hover table-checkable order-column"
+            id="example4">
+            <thead>
+              <tr>
+                
+                
+                <th>Doctor</th>
+                <th>Doctor Mobile</th>
+                <th>Slot</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for booking in booking  %}
+              <tr class="odd gradeX">
+                
+                
+                <td>
+                  <a href="">{{booking.doctor.name}}</a>
+                </td>
+                <td>
+                  {{booking.doctor.mobile}}
+                </td>
+                
+            
+                <td class="center"> {{booking.slot}} </td>
+                <td>
+                  {{booking.date}}
+                </td>
+                <td>
+                  {{booking.status}}
+                </td>
+                <td class="center">
+                  <div class="btn-group">
+                    <button
+                      class="btn btn-xs btn-warning dropdown-toggle center no-margin"
+                      type="button" data-toggle="dropdown"
+                      aria-expanded="false"> Actions
+                      <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-left" role="menu">
+                      <li>
+                        <a href="{% url 'cancel' booking.id %}"><i class="fa fa-trash-o"></i>
+                          Cancel </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'Delete' booking.id %}"><i class="fa fa-ban"></i>
+                          Delete </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </td>
+                
+              </tr>
+              {% endfor %}
+              
+              
+            
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+{% endblock content %}

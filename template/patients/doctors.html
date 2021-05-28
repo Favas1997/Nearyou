@@ -1,0 +1,270 @@
+{% extends "patients/blank.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<!-- Mirrored from medifab.dreamguystech.com/blue/doctors.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:00:01 GMT -->
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Medifab - Health &amp; Medical HTML Template</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/css/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css">
+		
+		<!-- Main Css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                         <div class="col-md-2 float-left">
+                            <div class="logo"> 
+								<a title="Medifab" href="index.html"><img alt="Logo" src="assets/img/logo.png" width="308" height="61"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+							<nav class="navbar navbar-expand-md p-0">
+								<div class="navbar-collapse collapse" id="navbar">
+									<ul class="nav navbar-nav main-nav float-right ml-auto">
+										<li class="nav-item">
+											<a href="index.html" class="nav-link">Home</a>
+										</li>
+										<li class="nav-item">
+											<a href="about-us.html" class="nav-link">About Us</a>
+										</li>
+										<li class="nav-item">
+											<a href="departments.html" class="nav-link">Departments</a>
+										</li>
+										<li class="nav-item">
+											<a href="services.html" class="nav-link">Services</a>
+										</li>
+										<li class="active nav-item">
+											<a href="doctors.html" class="nav-link">Doctors</a>
+										</li>
+										<li class="dropdown nav-item"> 
+											<a class="dropdown-toggle nav-link" data-toggle="dropdown">Blog <b class="caret"></b></a>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class="dropdown-item" href="blog.html">Right Sidebar</a>
+												<a class="dropdown-item" href="blog-left-sidebar.html">Left Sidebar</a>
+												<a class="dropdown-item" href="blog-full-width.html">Full Width</a>
+												<a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
+												<a class="dropdown-item" href="blog-details.html">Blog Details</a>
+											</div>
+										</li>
+										<li class="nav-item">
+											<a href="contact-us.html" class="nav-link">Contact Us</a>
+										</li>
+										<li class="nav-item">
+											<a class="btn btn-primary appoint-btn nav-link" href="appointment.html">Appointment</a>
+										</li>
+										<li class="dropdown nav-item"> 
+											<a class="dropdown-toggle settings-icon nav-link" data-toggle="dropdown"><i class="fas fa-cog"></i></a>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class="dropdown-item" href="login.html">Login</a>
+												<a class="dropdown-item" href="register.html">Register</a>
+												<a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+												<a class="dropdown-item" href="404.html">404</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+		<!-- Header /-->
+		
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <div class="panel-control-left">
+				<a class="toggle-menu" href="#side_menu"><i class="fas fa-bars"></i></a>
+            </div>
+            <div class="page_title"> 
+				<a href="index.html"><img src="assets/img/logo.png" alt="Logo" class="img-fluid" width="60" height="60"></a>
+            </div>
+        </header>
+		<!-- Mobile Header /-->
+		
+        <!-- Mobile Sidebar -->
+        <div class="sidebar sidebar-menu" id="side_menu">
+            <div class="sidebar-inner slimscroll"> 
+				<a id="close_menu" href="#"><i class="fas fa-times"></i></a>
+                <ul class="mobile-menu-wrapper" style="display: block;">
+                    <li>
+                        <div class="mobile-menu-item clearfix"> 
+							<a href="index.html">Home</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix">
+							<a href="about-us.html">About Us</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix">
+							<a href="departments.html">Departments</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix">
+							<a href="services.html">Services</a>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="mobile-menu-item clearfix">
+							<a href="doctors.html">Doctors</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix"> 
+							<a href="#" class="menu-toggle">Blog <i class="fas fa-sort-down  menu-toggle"></i></a>
+                        </div>
+                        <ul class="mobile-submenu-wrapper" style="display: none;">
+                            <li>
+								<a href="blog.html">Right Sidebar</a>
+                            </li>
+                            <li>
+								<a href="blog-left-sidebar.html">Left Sidebar</a>
+                            </li>
+                            <li>
+								<a href="blog-full-width.html">Full Width</a>
+                            </li>
+                            <li>
+								<a href="blog-grid.html">Blog Grid</a>
+                            </li>
+                            <li>
+								<a href="blog-details.html">Blog Details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix">
+							<a href="contact-us.html">Contact Us</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix"> 
+							<a href="appointment.html">Appointment</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix"> 
+							<a href="login.html">Login</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix">
+							<a href="register.html">Register</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix">
+							<a href="forgot-password.html">Forgot Password</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mobile-menu-item clearfix"> 
+							<a href="404.html">404</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+		<!-- Mobile Sidebar /-->
+		
+        <!-- Content -->
+        {% block content %}
+        <div class="main-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title"> 
+								<span>Our Doctors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-header text-center">
+                                <h3 class="header-title">Our Physician Lists</h3>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row doctors-list">
+                        {% for doctor in doctors %}
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+                            <div class="doctor-list">
+                                <div class="doctor-inner">
+                                    <img class="img-fluid" alt="" src="{{doctor.imageurl}}">
+                                    <div class="doctor-details">
+                                        <div class="doctor-info">
+                                            <h4 class="doctor-name"><a href="">Dr. {{doctor.name}} MBBS, FDS</a></h4>
+                                            <p>
+												<span class="depart">Physical Therapist</span>
+                                            </p>
+                                        </div>
+                                        <ul class="social-list">
+                                            <li>
+												<a class="facebook" href="#"><i class="fab fa-twitter"></i></a>
+                                            </li>
+                                            <li>
+												<a class="twitter" href="#"><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+												<a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                            </li>
+                                            <li>
+												<a class="g-plus" href="#"><i class="fab fa-google-plus-g"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="view-profie"> 
+											<a href="{% url 'doctor-details' doctor.id %}">View Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+		<!-- Content /-->
+		 
+        <!-- Footer -->
+       
+		
+    </body>
+
+
+<!-- Mirrored from medifab.dreamguystech.com/blue/doctors.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:00:10 GMT -->
+</html>

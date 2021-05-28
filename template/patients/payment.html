@@ -1,0 +1,121 @@
+{% extends "patients/blank.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<!-- Mirrored from medifab.dreamguystech.com/blue/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:00:26 GMT -->
+
+    
+    <body>
+        <!-- Header -->
+       
+		 <!-- Content -->
+         {% block content %}
+        <div class="main-content account-content">
+            <div class="content">
+                <div class="container">
+                    <div class="account-title">
+                        <h3>Payment Methods</h3>
+                   </div>
+                    <div class="account-box">
+                            
+                            <div class="form-group">
+                                <h5>Total amount to pay : 200 </h5>
+                                
+                            </div>
+                            <div id="paypal-button-container"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AfiXjOFoaD-ZMMUraOv8G7BPKJqMHTC7ujqpRp1UYmCYrXckm8CKsuveSfTKnvTkpZ7_YmhcoGmR5HtY&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '200'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                });
+            }
+            
+
+
+        }).render('#paypal-button-container');
+    </script>
+
+<form action="https://www.example.com/payment/success/" method="POST">
+<script
+src="https://checkout.razorpay.com/v1/payment-button.js"
+data-key="rzp_test_AAkY4Bwb1IM2Xx" 
+data-amount="20000"
+data-currency="INR"
+
+data-payment_button_id="pl_HEIhwDCJSP1xpr"
+data-name="Nearyou"
+data-image="https://example.com/your_logo.jpg"
+data-prefill.name="Favas"
+data-prefill.email="favasmuhammad@gmail.com"
+data-theme.color="#F37254"
+></script>
+</form>
+<!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HEIhwDCJSP1xpr" async> </script> </form> -->
+
+<form action="/your-server-side-code" method="POST">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_51Is8bGSFh8PQNiatWcVVCwYCafX4rlfNHJx5tKdFiLL7twGRqkV29jwLrkm0urlBQ12HUobMadhcrNZV5p3GG22J00cHwfxnRO"
+        data-amount="20000"
+        data-name="payment" 
+        data-label='Pay with Stripe'        
+        data-locale="auto">
+        
+    </script>
+    
+</form>
+<style>
+   .stripe-button-el span {
+  background: #5e366a !important;
+  background-image:none !important;
+  background-color: #40366a !important;
+  width: 175px;
+}
+</style>
+
+
+
+
+
+
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+		<!-- Content /-->
+		 
+        <!-- Footer -->
+
+		
+    </body>
+
+
+<!-- Mirrored from medifab.dreamguystech.com/blue/forgot-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:00:26 GMT -->
+</html>
+<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HBtgbYx72bgAdV" async> </script> </form>
