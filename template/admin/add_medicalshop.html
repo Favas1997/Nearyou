@@ -34,7 +34,7 @@
                                 </li>
                                 <li><a class="parent-item" href="#">Doctors</a>&nbsp;<i class="fa fa-angle-right"></i>
                                 </li>
-                                <li class="active">Add Doctor</li>
+                                <li class="active">Add Medical shop</li>
                             </ol>
                         </div>
                     </div>
@@ -60,28 +60,30 @@
                                     </ul>
                                 </div>
                                 <div class="card-body" id="bar-parent">
-                                    <form action="add_doctor" id="form_sample_1" class="form-horizontal"  method="POST" enctype="multipart/form-data" >
-                                        {% csrf_token %}
+                                    <form id="form_sample_1" class="form-horizontal"  >
+                    
                                         <div class="form-body">
                                             <div class="form-group row">
                                                 <label class="control-label col-md-3">Name
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-5">
-                                                    <input type="text" name="name" data-required="1"
+                                                    <input type="text" id="name" data-required="1"
                                                         placeholder="enter name"
                                                         class="form-control input-height" />
                                                 </div>
+                                                <span style="color: red;" id="errorname"></span>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="control-label col-md-3">Experience
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-5">
-                                                    <input type="text" name="experience" data-required="1"
+                                                    <input type="text" id="experience" data-required="1"
                                                         placeholder="experience"
                                                         class="form-control input-height" />
                                                 </div>
+                                                <span style="color: red;" id="errorexp"></span>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="control-label col-md-3">Email
@@ -91,8 +93,9 @@
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-envelope"></i>
                                                         </span>
-                                                        <input type="text" class="form-control input-height"
-                                                            name="email" placeholder="Email Address"> </div>
+                                                        <input type="email" class="form-control input-height"
+                                                            id="email" placeholder="Email Address"> </div>
+                                                    <span style="color: red;" id="erroremail"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -100,7 +103,7 @@
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-5">
-                                                    <input type="password" name="password1" data-required="1"
+                                                    <input type="password" id="password1" data-required="1"
                                                         placeholder="enter Password"
                                                         class="form-control input-height" />
                                                 </div>
@@ -110,98 +113,52 @@
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-5">
-                                                    <input type="text" name="password2" data-required="1"
+                                                    <input type="password" id="password2" data-required="1"
                                                         placeholder="Reenter your password"
                                                         class="form-control input-height" />
                                                 </div>
+                                                <span style="color: red;" id="errorpassword"></span>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Designation
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input type="text" name="designation" data-required="1"
-                                                        placeholder="enter your designation"
-                                                        class="form-control input-height" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Departments
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <select class="form-control input-height" name="department">
-                                                        <option value="">Select...</option>
-                                                        <option value="Category 1">Neurology</option>
-                                                        <option value="Category 2">Orthopedics</option>
-                                                        <option value="Category 3">Gynaecology</option>
-                                                        <option value="Category 3">Microbiology</option>
-                                                        <option value="Category 3">Radiotherapy</option>
-                                                        <option value="Category 3">Pharmacy</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Gender
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <select class="form-control input-height" name="gender">
-                                                        <option value="">Select...</option>
-                                                        <option value="Male">Male</option>
-                                                        <option value="Female">Female</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
+                                            
+                                            
                                             <div class="form-group row">
                                                 <label class="control-label col-md-3">Mobile No.
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-5">
-                                                    <input name="number" type="text" placeholder="mobile number"
+                                                    <input id="mobile" type="text" placeholder="mobile number"
                                                         class="form-control input-height" /> </div>
+                                                <span style="color: red;" id="errormobile"></span>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="control-label col-md-3">Hospital.
+                                                <label class="control-label col-md-3">Place
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-5">
-                                                    <input name="hospital" type="text" placeholder="Hospital"
+                                                    <input id="place" type="text" placeholder="Place"
                                                         class="form-control input-height" /> </div>
+                                                <span style="color: red;" id="errorplace"></span>
                                             </div>
                                             
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Address
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <textarea name="address" placeholder="address"
-                                                        class="form-control-textarea" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
+                                            
+                                            <!-- <div class="form-group row">
                                                 <label class="control-label col-md-3">Profile Picture
                                                 </label>
                                                 <div >
                                                     
                                                        <input type="file" id="img" name="profile" accept="image/*">
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Education
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <textarea name="education" class="form-control-textarea"
-                                                        placeholder="Education" rows="5"></textarea>
-                                                </div>
-                                            </div>
+                                            </div> -->
+                                            
                                             <div class="form-actions">
                                                 <div class="row">
                                                     <div class="offset-md-3 col-md-9">
-                                                        <button type="submit"
-                                                            class="btn btn-info m-r-20">Submit</button>
-                                                        <button type="button" class="btn btn-default">Cancel</button>
+                                                        <button type="button"
+                                                            class="btn btn-info m-r-20" onclick="addshop()">Submit</button>
+                                                        <button type="button" class="btn btn-default" >Cancel</button>
                                                     </div>
+                                                    <span style="color: red;" id="error"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,6 +169,87 @@
                     </div>
                 </div>
             </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+           <script>
+                 function addshop(){
+                    var name = $('#name').val()
+                    var experience= $('#experience').val()
+                    var email = $('#email').val()
+                    var mobile=$('#mobile').val()
+                    var mobile_length=$('#mobile').val().length
+                    var place=$('#place').val()
+                    var password1 = $('#password1').val()
+                    var password2 = $('#password2').val()
+                    var passlength= $('#password1').val().length
+                    var at = email.indexOf('@')
+				    var dot =email.indexOf('.')
+                    var data= {
+					'csrfmiddlewaretoken': '{{csrf_token}}',
+					'name': name,
+					'exp': experience,
+                    'email':email,
+                    'password':password1,
+                    'place':place,
+                    'mobile':mobile,
+	
+				 }
+
+                 if (name == '') {
+					$('#errorname').html('Please fill your name')
+				}
+                else if (experience == "") {
+					$("#errorexp").html("Please fill your experience")
+				}
+                else if (at<2 || dot<at+2|| dot+2>=email.length) {
+				$('#erroremail').html('enter valid format') 
+			    }
+                else if (place == "") {
+					$("#errorplace").html("Please fill your place")
+				}
+                else if (passlength<5){
+				    $('#errorpassword').html('minimum 5 charcter required')
+			    }
+			    else if (mobile_length<10) {
+					$("#errormobile").html("invalid format")
+				}
+                
+                else if (password1 != password2) {
+					$("#errorpassword").html("Password not matching")
+				}
+                
+                else{
+
+				$.ajax({
+					url :'/admin/add_shop/',
+					method :'POST',
+					data : data,
+					dataType : 'json',
+					success:function(data){
+						if(data=='true'){
+                            alert('succesfully medical shop added')
+							window.location.replace('/login/')
+						}
+						if (data=='false'){
+							$('#error').html('user already exist')
+						}
+						if (data=='false1'){
+							$('#error').html('mobile number already exist')
+						}
+						// if (data=='false2'){
+						// 	$('#error').html('Mobile Number already exist')
+						// }
+						
+		
+					}
+		
+				})
+			}
+
+                }
+
+           </script>
+
+
             {% endblock content %}
           
 </body>

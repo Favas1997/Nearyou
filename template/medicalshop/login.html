@@ -1,79 +1,163 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html>
-
-
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 May 2021 09:44:38 GMT -->
+<!DOCTYPE html> 
+<html lang="en">
+{% load static %}	
+<!-- Mirrored from doccure-html.dreamguystech.com/template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:24:03 GMT -->
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta content="width=device-width, initial-scale=1" name="viewport" />
-	<meta name="description" content="Responsive Admin Template" />
-	<meta name="author" content="RedstarHospital" />
-	<title>Redstar Hospital | Bootstrap Responsive Hospital Admin Template</title>
-	<!-- google font -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
-		type="text/css" />
-	<!-- icons -->
-	<link href="{% static 'admin/css/font-awesome.min.css'}" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/iconic/css/material-design-iconic-font.min.css">
-	<!-- bootstrap -->
-	<link href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<!-- style -->
-	<link rel="stylesheet" href="{% static 'admin/css/extra_pages.css' %}">
-	<!-- favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico" />
-</head>
+		<meta charset="utf-8">
+		<title>Doccure</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="{%static 'medicalshop/assets/img/favicon.png'%}" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'medicalshop/assets/css/bootstrap.min.css'%}">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="{% static 'medicalshop/assets/plugins/fontawesome/css/fontawesome.min.css'%}">
+		<link rel="stylesheet" href="{% static 'medicalshop/assets/plugins/fontawesome/css/all.min.css'%}">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="{% static 'medicalshop/assets/css/style.css'%}">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body class="account-page">
 
-<body>
-	<div class="limiter">
-		<div class="container-login100 page-background">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="">
-					{% csrf_token %}
-					<span class="login100-form-logo">
-						<img alt="" src="{%static 'admin/img/' %}">
-					</span>
-					<span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
-					<div class="wrap-input100 validate-input" data-validate="Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+			
+			<!-- /Header -->
+			
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+					
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							
+							<!-- Login Tab Content -->
+							<div class="account-content">
+								<div class="row align-items-center justify-content-center">
+									<div class="col-md-7 col-lg-6 login-left">
+										<img src="{% static 'medicalshop/assets/img/login-banner.png'%}" class="img-fluid" alt="Doccure Login">	
+									</div>
+									<div class="col-md-12 col-lg-6 login-right">
+										<div class="login-header">
+											<h3>Login <span>Doccure</span></h3>
+										</div>
+										<form>
+											<div class="form-group form-focus">
+												<input type="email" class="form-control floating" id="email">
+												<label class="focus-label">Email</label>
+											</div>
+											<div class="form-group form-focus">
+												<input type="password" class="form-control floating" id="password">
+												<label class="focus-label">Password</label>
+											</div>
+											<div class="text-right">
+												<a class="forgot-link" href="forgot-password.html">Forgot Password ?</a>
+											</div>
+											<span style="color: red;" id="error"></span>
+											<button class="btn btn-primary btn-block btn-lg login-btn" onclick="login()" type="button">Login</button>
+											<div class="login-or">
+												<span class="or-line"></span>
+												<span class="span-or">or</span>
+											</div>
+											<div class="row form-row social-login">
+												<div class="col-12">
+													<a href="#" class="btn btn-facebook btn-block"> Login with otp</a>
+												</div>
+												<!-- <div class="col-6">
+													<a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
+												</div> -->
+											</div>
+											
+										</form>
+									</div>
+								</div>
+							</div>
+							<!-- /Login Tab Content -->
+								
+						</div>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">
-							Login
-						</button>
-					</div>
-					<div class="text-center p-t-30">
-						<a class="txt1" href="forgot_password.html">
-							Forgot Password?
-						</a>
-					</div>
-				</form>
-			</div>
+
+				</div>
+
+			</div>		
+			<!-- /Page Content -->
+   
+			<!-- Footer -->
+			
+		   
 		</div>
-	</div>
-	<!-- start js include path -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery/jquery.min.js"></script>
-	<!-- bootstrap -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/js/bootstrap.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/data/login-data.js"></script>
-	<!-- end js include path -->
-</body>
+		<!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="{% static 'medicalshop/assets/js/jquery.min.js' %}"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="{% static 'medicalshop/assets/js/popper.min.js' %}"></script>
+		<script src="{% static 'medicalshop/assets/js/bootstrap.min.js' %}"></script>
+		
+		<!-- Custom JS -->
+		<script src="{% static 'medicalshop/assets/js/script.js' %}"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+		
+
+		<script>
+
+         function login(){
+			var password = $('#password').val()
+            var email = $('#email').val()
+            var data= {
+					'csrfmiddlewaretoken': '{{csrf_token}}',
+                    'email':email,
+                    'password':password,
+                    
+	
+				 }
+				 if (email == '') {
+					$('#error').html('Please type your email')
+				}
+                else if (password== "") {
+					$("#error").html("Please type your password")
+				}
+				else{
+
+					$.ajax({
+					url :'',
+					method :'POST',
+					data : data,
+					dataType : 'json',
+					success:function(data){
+						if(data=='true'){
+							window.location.replace('medical_home/')
+						}
+						if (data=='false'){
+							$('#error').html('inavlid credentials')
+						}
+						
+					}
+		
+				})
+				}
 
 
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 May 2021 09:44:39 GMT -->
+
+
+		 }
+
+		</script>
+		
+	</body>
+
+<!-- Mirrored from doccure-html.dreamguystech.com/template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:25:07 GMT -->
 </html>

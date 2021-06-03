@@ -22,3 +22,10 @@ class doctors(models.Model):
         else:
             image = self.profile_image.url
         return image
+class MedicalShop(models.Model):
+    name=models.CharField(max_length=150)
+    experience=models.IntegerField()
+    email = models.EmailField(max_length=20)
+    password = models.CharField(max_length=100)
+    mobile = models.CharField(max_length=20)
+    place = models.CharField(max_length=20)
