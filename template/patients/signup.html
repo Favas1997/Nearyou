@@ -49,40 +49,16 @@
 										<li class="nav-item">
 											<a href="about-us.html" class="nav-link">About Us</a>
 										</li>
-										<li class="nav-item">
-											<a href="departments.html" class="nav-link">Departments</a>
-										</li>
-										<li class="nav-item">
-											<a href="services.html" class="nav-link">Services</a>
-										</li>
+										
 										<li class="nav-item">
 											<a href="doctors.html" class="nav-link">Doctors</a>
 										</li>
-										<li class="dropdown nav-item"> 
-											<a class="dropdown-toggle nav-link" data-toggle="dropdown">Blog <b class="caret"></b></a>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="blog.html">Right Sidebar</a>
-												<a class="dropdown-item" href="blog-left-sidebar.html">Left Sidebar</a>
-												<a class="dropdown-item" href="blog-full-width.html">Full Width</a>
-												<a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
-												<a class="dropdown-item" href="blog-details.html">Blog Details</a>
-											</div>
-										</li>
+										
 										<li class="nav-item">
 											<a href="contact-us.html" class="nav-link">Contact Us</a>
 										</li>
-										<li class="nav-item">
-											<a class="btn btn-primary appoint-btn nav-link" href="appointment.html">Appointment</a>
-										</li>
-										<li class="dropdown nav-item"> 
-											<a class="dropdown-toggle settings-icon nav-link" data-toggle="dropdown"><i class="fas fa-cog"></i></a>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="login.html">Login</a>
-												<a class="dropdown-item" href="register.html">Register</a>
-												<a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-												<a class="dropdown-item" href="404.html">404</a>
-											</div>
-										</li>
+										
+										
 									</ul>
 								</div>
 							</nav>
@@ -119,73 +95,21 @@
 							<a href="about-us.html">About Us</a>
                         </div>
                     </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="departments.html">Departments</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="services.html">Services</a>
-                        </div>
-                    </li>
+                    
                     <li>
                         <div class="mobile-menu-item clearfix"> 
 							<a href="doctors.html">Doctors</a>
                         </div>
                     </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="#" class="menu-toggle">Blog <i class="fas fa-sort-down  menu-toggle"></i></a>
-                        </div>
-                        <ul class="mobile-submenu-wrapper" style="display: none;">
-                            <li>
-								<a href="blog.html">Right Sidebar</a>
-                            </li>
-                            <li>
-								<a href="blog-left-sidebar.html">Left Sidebar</a>
-                            </li>
-                            <li>
-								<a href="blog-full-width.html">Full Width</a>
-                            </li>
-                            <li>
-								<a href="blog-grid.html">Blog Grid</a>
-                            </li>
-                            <li>
-								<a href="blog-details.html">Blog Details</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
                     <li>
                         <div class="mobile-menu-item clearfix">
 							<a href="contact-us.html">Contact Us</a>
                         </div>
                     </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="appointment.html">Appointment</a>
-                        </div>
-                    </li>
-                    <li class="active">
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="login.html">Login</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="register.html">Register</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="forgot-password.html">Forgot Password</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="404.html">404</a>
-                        </div>
-                    </li>
+                    
+                    
+                   
                 </ul>
             </div>
         </div>
@@ -195,25 +119,149 @@
             <div class="content">
                 <div class="container">
                     <div class="account-box">
-                        <form class="form-signin" action="{% url 'signup' %}" method="POST" class="control-group">
-                            {% csrf_token %}
+                        <form class="form-signin"  class="control-group">
+            
                             <div class="account-title">
                                  <h3>Register</h3>
                             </div>
-                            <table>
-                                {{form.as_table}}
-                              </table>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Username</label>
+                                    <input id="username"  type="text"  class="form-control">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Name</label>
+                                    <input id="name" type="text" class="form-control">
+                                </div>
+
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input id="email"  type="email" class="form-control">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Password</label>
+                                    <input id="password1"  type="password" class="form-control">
+                                </div> 
+                                <div class="form-group col-md-6">
+                                    <label>Confirm Password</label>
+                                    <input id="password2" type="password" class="form-control">
+                                </div>
+
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <input id="phone" type="text" class="form-control">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Place</label>
+                                    <input id="place" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Age</label>
+                                    <input id="age" type="text" class="form-control">
+                                </div>
+
+                            </div>
+                            
+                            <div class="form-group">
+                            <label for="blood-group">Blood-group:</label>
+                            <select id="blood-group" class="form-control">
+                                <option value="">choose</option>
+                                <option value="B+">B+</option>
+                                <option value="O+">O+</option>
+                                <option value="A-">A-</option>
+                              </select>
+                            </div>
+                            <span style="color: red;" id="error"></span>
                             <div class="form-group text-center">
-                                <button class="btn btn-primary account-btn" type="submit">Signup</button>
+                                <button class="btn btn-primary account-btn" id="btn" type="button">Signup</button>
                             </div>
                             <div class="text-center login-link">Already have an account? 
-								<a href="login.html">Login</a>
+								<a href="{% url 'login' %}">Login</a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            $('#btn').click(function(){
+            var username =$('#username').val()
+            var name= $('#name').val()
+            var place= $('#place').val()
+            var Age= $('#age').val()
+            var blood =$('#blood-group').val()
+            var email    =$('#email').val()
+            var phone    =$('#phone').val()
+            var password =$('#password1').val()
+            var Re_password =$('#password2').val()
+            var atposition=email.indexOf("@");
+            var dotposition=email.lastIndexOf(".");
+            var   data = {
+                    'csrfmiddlewaretoken':'{{csrf_token}}',
+                    'username':username,
+                    'email':email,
+                    'phone':phone,
+                    'password':password,
+                    'age':Age,
+                    'blood_group':blood,
+                    'place':place,
+                    'name':name,
+                    
+                }
+                if(username.length<=3 || username.length>30){
+                    $('#error').html('<h6>Enter a valid first name</h6>')
+                }else if(name.length<=3 || name.length>30){
+                    $('#error').html('<h6>Enter  a  valid name</h6>')
+                }else if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length){
+                    $('#error').html('<h6>Enter a valid email id</h6>')
+                }else if(isNaN(phone)||phone.length!=10){
+                    $('#error').html('<h6>Enter a valid phone number</h6>')
+                }else if(password.length<5){
+                    $('#error').html('<h6>Enter a valid password</h6>')
+                }else if(password != Re_password){
+                    $('#error').html('<h6>Password not matching</h6>')
+                }else if(blood==''){
+                    $('#error').html('<h6>Select blood group</h6>')
+                }else if(Age==''){
+                    $('#error').html('<h6>Enter  your Age </h6>')
+                }else if(place==''){
+                    $('#error').html('<h6>Enter your Place </h6>')
+                }
+                else{
+                    console.log('hi')
+                    $.ajax({
+                        url:'/signup/',
+                        method:'POST',
+                        data:data,
+                        dataType:'json',
+                        success:function(data){
+                        console.log(data)
+                            if(data == 'true'){
+                                alert('user created')
+                                window.location.replace('/login/')
+                            }
+                            if(data == 'email'){
+                                $('#error').html('<h6>This email id is already taken</h6>')
+                            }
+                            if(data == 'username'){
+                                $('#error').html('<h6>This username is already taken</h6>')
+                            }
+                            if(data == 'phone'){
+                                $('#error').html('<h6>This Phone Number is already taken</h6>')
+                            }
+                        }
+                    })
+                }
+            })
+        </script>
 
         {% endblock content%}
 		<!-- Mobile Sidebar /-->

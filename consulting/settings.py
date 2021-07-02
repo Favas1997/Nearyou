@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'patients.User'
 
 # Application definition
 
@@ -43,6 +42,8 @@ INSTALLED_APPS = [
     'patients',
     'doctors',
     'social_django',
+    'channels',
+    'medicalshop',
     
 ]
 
@@ -56,7 +57,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'consulting.urls'
+ASGI_APPLICATION = 'consulting.asgi.application'
 
 TEMPLATES = [
     {
@@ -85,12 +88,20 @@ WSGI_APPLICATION = 'consulting.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'consulting',
-        'USER':'consulting',
+        'NAME':'onlineconsult',
+        'USER':'favas',
         'PASSWORD':'123456',
         'HOST':'localhost'
     }
 }
+
+
+# Number of seconds of inactivity before a user is marked offline
+USER_ONLINE_TIMEOUT = 300
+
+# Number of seconds that we will keep track of inactive users for before 
+# their last seen is removed from the cache
+USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 
 
 # Password validation
@@ -117,8 +128,6 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.linkedin.LinkedinOAuth2',
- 
- 
     'django.contrib.auth.backends.ModelBackend',
  
  
@@ -165,6 +174,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR,'media')
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -180,3 +195,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_SECRET_KEY = 'sk_test_51Is8bGSFh8PQNiatOE2nPviQi3KLbfmuf3bnhay4xRMP6PlGzKrOBM8PFgdNNlPuwfUduqj2a6jG5yk08H1YpOZt00rf2PirGa'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51Is8bGSFh8PQNiatWcVVCwYCafX4rlfNHJx5tKdFiLL7twGRqkV29jwLrkm0urlBQ12HUobMadhcrNZV5p3GG22J00cHwfxnRO'
+

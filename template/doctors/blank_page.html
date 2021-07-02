@@ -1,735 +1,367 @@
 {% load static %}
 
-
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<!-- BEGIN HEAD -->
-
-
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/blank_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 May 2021 09:46:38 GMT -->
+	
+<!-- Mirrored from doccure-html.dreamguystech.com/template/doctor-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:26:21 GMT -->
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta content="width=device-width, initial-scale=1" name="viewport" />
-	<meta name="description" content="Responsive Admin Template" />
-	<meta name="author" content="RedstarHospital" />
-	<title>Redstar Hospital | Bootstrap Responsive Hospital Admin Template</title>
-	<!-- google font -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
-		type="text/css" />
-	<!-- icons -->
-	<link href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-	<link href="{% static 'admin/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<!--bootstrap -->
-	<link href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<!-- Material Design Lite CSS -->
-	<link rel="stylesheet" href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/material/material.min.css">
-	<link rel="stylesheet" href="{%static 'admin/css/material_style.css' %}">
-	<!-- Theme Styles -->
-	<link href="{% static 'admin/css/theme_style.css' %}" rel="stylesheet" id="rt_style_components" type="text/css" />
-	<link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css" />
-	<link href="{% static 'admin/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
-	<link href="{% static 'admin/css/responsive.css'%}" rel="stylesheet" type="text/css" />
-	<link href="{% static 'admin/css/theme-color.css' %}" rel="stylesheet" type="text/css" />
-	<!-- favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico" />
-</head>
-<!-- END HEAD -->
+		<meta charset="utf-8">
+		<title>Doccure</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="assets/img/favicon.png" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'shop/assets/css/bootstrap.min.css' %}">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="{% static 'shop/assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'shop/assets/plugins/fontawesome/css/all.min.css' %}">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="{% static 'shop/assets/css/style.css' %}">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
 
-<body
-	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
-	<div class="page-wrapper">
-		<!-- start header -->
-		<div class="page-header navbar navbar-fixed-top">
-			<div class="page-header-inner ">
-				<!-- logo start -->
-				<div class="page-logo">
-					<a href="index.html">
-						<span class="logo-icon fa fa-stethoscope fa-rotate-45"></span>
-						<span class="logo-default">Nearyou</span> </a>
-				</div>
-				<!-- logo end -->
-				<ul class="nav navbar-nav navbar-left in">
-					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
-				</ul>
-				<form class="search-form-opened" action="#" method="GET">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search..." name="query">
-						<span class="input-group-btn">
-							<a href="javascript:;" class="btn submit">
-								<i class="icon-magnifier"></i>
-							</a>
-						</span>
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+			<header class="header">
+				<nav class="navbar navbar-expand-lg header-nav">
+					<div class="navbar-header">
+						<a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</a>
+						<a href="index.html" class="navbar-brand logo">
+							<img src="{% static 'medicalshop/new/download.png' %}" class="img-fluid" alt="Logo" width="30" height="30" >
+						</a>
 					</div>
-				</form>
-				<!-- start mobile menu -->
-				<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span></span>
-				</a>
-				<!-- end mobile menu -->
-				<!-- start header menu -->
-				<div class="top-menu">
-					<ul class="nav navbar-nav pull-right">
-						<!-- start language menu -->
-						
-						<!-- end language menu -->
-						<!-- start notification dropdown -->
-						
-							
-						<!-- end notification dropdown -->
-						<!-- start message dropdown -->
-						<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<i class="fa fa-envelope-o"></i>
-								<span class="badge headerBadgeColor2"> 2 </span>
+					<div class="main-menu-wrapper">
+						<div class="menu-header">
+							<a href="index.html" class="menu-logo">
+								<!-- <img src="assets/img/logo.png" class="img-fluid" alt="Logo"> -->
 							</a>
-							<ul class="dropdown-menu">
-								<li class="external">
-									<h3><span class="bold">Messages</span></h3>
-									<span class="notification-label cyan-bgcolor">New 2</span>
-								</li>
-								<li>
-									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-										<li>
-											<a href="#">
-												<span class="photo">
-													<img src="img/doc/doc2.jpg" class="img-circle" alt=""> </span>
-												<span class="subject">
-													<span class="from"> Sarah Smith </span>
-													<span class="time">Just Now </span>
-												</span>
-												<span class="message"> Jatin I found you on LinkedIn... </span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="photo">
-													<img src="img/doc/doc3.jpg" class="img-circle" alt=""> </span>
-												<span class="subject">
-													<span class="from"> John Deo </span>
-													<span class="time">16 mins </span>
-												</span>
-												<span class="message"> Fwd: Important Notice Regarding Your Domain
-													Name... </span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="photo">
-													<img src="img/doc/doc1.jpg" class="img-circle" alt=""> </span>
-												<span class="subject">
-													<span class="from"> Rajesh </span>
-													<span class="time">2 hrs </span>
-												</span>
-												<span class="message"> pls take a print of attachments. </span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="photo">
-													<img src="img/doc/doc8.jpg" class="img-circle" alt=""> </span>
-												<span class="subject">
-													<span class="from"> Lina Smith </span>
-													<span class="time">40 mins </span>
-												</span>
-												<span class="message"> Apply for Ortho Surgeon </span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="photo">
-													<img src="img/doc/doc5.jpg" class="img-circle" alt=""> </span>
-												<span class="subject">
-													<span class="from"> Jacob Ryan </span>
-													<span class="time">46 mins </span>
-												</span>
-												<span class="message"> Request for leave application. </span>
-											</a>
-										</li>
-									</ul>
-									<div class="dropdown-menu-footer">
-										<a href="#"> All Messages </a>
-									</div>
-								</li>
-							</ul>
-						</li>
-						<!-- end message dropdown -->
-						<!-- start manage user dropdown -->
-						<li class="dropdown dropdown-user">
-							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<!-- <img alt="" class="img-circle " src="img/dp.jpg" /> -->
-								<span class="username username-hide-on-mobile">{{doctor.name}}</span>
-								<i class="fa fa-angle-down"></i>
+							<a id="menu_close" class="menu-close" href="javascript:void(0);">
+								<i class="fas fa-times"></i>
 							</a>
-							<ul class="dropdown-menu dropdown-menu-default">
-								<li>
-									<a href="user_profile.html">
-										<i class="icon-user"></i> Profile </a>
-								</li>
-								<li>
-									<a href="{% url 'change_password' doctor.id %}">
-										<i class="icon-settings"></i> Change password
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-directions"></i> Help
-									</a>
-								</li>
-								<li class="divider"> </li>
-								<li>
-									<a href="lock_screen.html">
-										<i class="icon-lock"></i> Lock
-									</a>
-								</li>
-								<li>
-									<a href="login.html">
-										<i class="icon-logout"></i> Log Out </a>
-								</li>
-							</ul>
-						</li>
-						<!-- end manage user dropdown -->
-						<li class="dropdown dropdown-quick-sidebar-toggler">
-							<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
-								data-upgraded=",MaterialButton">
-								<i class="material-icons">more_vert</i>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- end header -->
-		<!-- start color quick setting -->
-		<div class="settingSidebar">
-          <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
-          </a>
-          <div class="settingSidebar-body ps-container ps-theme-default">
-            <div class=" fade show active">
-              <div class="setting-panel-header">Setting Panel
-              </div>
-	              <div class="quick-setting slimscroll-style">
-					<ul id="themecolors">
-						<li>
-							<p class="sidebarSettingTitle">Sidebar Color</p>
-						</li>
-						<li class="complete">
-							<div class="theme-color sidebar-theme">
-								<a href="#" data-theme="white"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="dark"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="blue"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="indigo"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="cyan"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="green"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="red"><span class="head"></span><span class="cont"></span></a>
-							</div>
-						</li>
-						<li>
-							<p class="sidebarSettingTitle">Header Brand color</p>
-						</li>
-						<li class="theme-option">
-							<div class="theme-color logo-theme">
-								<a href="#" data-theme="logo-white"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="logo-dark"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="logo-blue"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="logo-indigo"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="logo-cyan"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="logo-green"><span class="head"></span><span class="cont"></span></a>
-								<a href="#" data-theme="logo-red"><span class="head"></span><span class="cont"></span></a>
-							</div>
-						</li>
-						<li>
-							<p class="sidebarSettingTitle">Header color</p>
-						</li>
-						<li class="theme-option">
-							<div class="theme-color header-theme">
-								<a href="#" data-theme="header-white"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="header-dark"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="header-blue"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="header-indigo"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="header-cyan"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="header-green"><span class="head"></span><span
-										class="cont"></span></a>
-								<a href="#" data-theme="header-red"><span class="head"></span><span class="cont"></span></a>
-							</div>
-						</li>
-					</ul>
-				</div>
-            </div>
-          </div>
-        </div>
-		<!-- end color quick setting -->
-		<!-- start page container -->
-		<div class="page-container">
-			<!-- start sidebar menu -->
-			<div class="sidebar-container">
-				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
-					<div id="remove-scroll" class="left-sidemenu">
-						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
-							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-							<li class="sidebar-toggler-wrapper hide">
-								<div class="sidebar-toggler">
-									<span></span>
-								</div>
-							</li>
-							<li class="sidebar-user-panel">
-								<div class="user-panel">
-									<div class="pull-left image">
-										<img src="{{doctor.imageurl}}" class="img-circle user-img-circle" alt="User Image" />
-									</div>
-									
-								</div>
-							</li>
-							<li class="nav-item ">
-								<a href="#" class="nav-link nav-toggle">
-									<i class="material-icons">dashboard</i>
-									<span class="title">Dashboard</span>
-									<span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item">
-										<a href="index.html" class="nav-link ">
-											<span class="title">Dashboard 1</span>
-										</a>
-									</li>
-									
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle">
-									<i class="material-icons">email</i>
-									<span class="title">Email</span>
-									<span class="arrow"></span>
-									<span class="label label-rouded label-menu deepPink-bgcolor">3</span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item  ">
-										<a href="email_inbox.html" class="nav-link ">
-											<span class="title">Inbox</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="email_view.html" class="nav-link ">
-											<span class="title">View Mail</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="email_compose.html" class="nav-link ">
-											<span class="title">Compose Mail</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item  ">
-								<a href="#" class="nav-link nav-toggle"><i class="material-icons">assignment</i>
-									<span class="title">Appointment</span><span class="arrow"></span></a>
-								<ul class="sub-menu">
-									<li class="nav-item  ">
-										<a href="{% url 'addschedule' doctor.id %}" class="nav-link "> <span class="title">Doctor
-												Schedule</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="book_appointment.html" class="nav-link "> <span class="title">Book
-												Appointment</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="book_appointment_material.html" class="nav-link "> <span
-												class="title">Book Appointment Material</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="edit_appointment.html" class="nav-link "> <span class="title">Edit
-												Appointment</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="{% url 'view_appointment' doctor.id %}" class="nav-link "> <span class="title">View All
-												Appointment</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							
-							<li class="nav-item  ">
-								<a href="#" class="nav-link nav-toggle"> <i class="material-icons">accessible</i>
-									<span class="title">Patients</span> <span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item  ">
-										<a href="{% url 'patients_list' %}" class="nav-link "> <span class="title">All
-												Patients</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="add_patient.html" class="nav-link "> <span class="title">Add
-												Patient</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="add_patient_material.html" class="nav-link "> <span class="title">Add
-												Patient Material</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="edit_patient.html" class="nav-link "> <span class="title">Edit
-												Patient</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="patient_profile.html" class="nav-link "> <span class="title">Patient
-												Profile</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							
-							<li class="nav-item  ">
-								<a href="#" class="nav-link nav-toggle"> <i class="material-icons">monetization_on</i>
-									<span class="title">Payments</span> <span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item  ">
-										<a href="payments.html" class="nav-link "> <span class="title">Payments</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="add_payment.html" class="nav-link "> <span class="title">Add
-												Payments</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="invoice_payment.html" class="nav-link "> <span class="title">Patient
-												Invoice</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-					</div>
-				</div>
-			</div>
-			<!-- end sidebar menu -->
-			<!-- start page content -->
-			{% block content %}
-
-
-			{% endblock content %}
-			<!-- end page content -->
-			<!-- start chat sidebar -->
-			<div class="chat-sidebar-container" data-close-on-body-click="false">
-				<div class="chat-sidebar">
-					<ul class="nav nav-tabs">
-						<li class="nav-item">
-							<a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-toggle="tab"> <i
-									class="material-icons">chat</i>Chat
-								<span class="badge badge-danger">4</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-toggle="tab"> <i
-									class="material-icons">settings</i>
-								Settings
-							</a>
-						</li>
-					</ul>
-					<div class="tab-content">
-						<!-- Start Doctor Chat -->
-						<div class="tab-pane active chat-sidebar-chat in active show" role="tabpanel"
-							id="quick_sidebar_tab_1">
-							<div class="chat-sidebar-list">
-								<div class="chat-sidebar-chat-users slimscroll-style" data-rail-color="#ddd"
-									data-wrapper-class="chat-sidebar-list">
-									<div class="chat-header">
-										<h5 class="list-heading">Online</h5>
-									</div>
-									<ul class="media-list list-items">
-										<li class="media"><img class="media-object" src="img/doc/doc3.jpg" width="35"
-												height="35" alt="...">
-											<i class="online dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">John Deo</h5>
-												<div class="media-heading-sub">Spine Surgeon</div>
-											</div>
-										</li>
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-success">5</span>
-											</div> <img class="media-object" src="img/doc/doc1.jpg" width="35"
-												height="35" alt="...">
-											<i class="busy dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Rajesh</h5>
-												<div class="media-heading-sub">Director</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="img/doc/doc5.jpg" width="35"
-												height="35" alt="...">
-											<i class="away dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Jacob Ryan</h5>
-												<div class="media-heading-sub">Ortho Surgeon</div>
-											</div>
-										</li>
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-danger">8</span>
-											</div> <img class="media-object" src="img/doc/doc4.jpg" width="35"
-												height="35" alt="...">
-											<i class="online dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Kehn Anderson</h5>
-												<div class="media-heading-sub">CEO</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="img/doc/doc2.jpg" width="35"
-												height="35" alt="...">
-											<i class="busy dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Sarah Smith</h5>
-												<div class="media-heading-sub">Anaesthetics</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="img/doc/doc7.jpg" width="35"
-												height="35" alt="...">
-											<i class="online dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Vlad Cardella</h5>
-												<div class="media-heading-sub">Cardiologist</div>
-											</div>
-										</li>
-									</ul>
-									<div class="chat-header">
-										<h5 class="list-heading">Offline</h5>
-									</div>
-									<ul class="media-list list-items">
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-warning">4</span>
-											</div> <img class="media-object" src="img/doc/doc6.jpg" width="35"
-												height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Jennifer Maklen</h5>
-												<div class="media-heading-sub">Nurse</div>
-												<div class="media-heading-small">Last seen 01:20 AM</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="img/doc/doc8.jpg" width="35"
-												height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Lina Smith</h5>
-												<div class="media-heading-sub">Ortho Surgeon</div>
-												<div class="media-heading-small">Last seen 11:14 PM</div>
-											</div>
-										</li>
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-success">9</span>
-											</div> <img class="media-object" src="img/doc/doc9.jpg" width="35"
-												height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Jeff Adam</h5>
-												<div class="media-heading-sub">Compounder</div>
-												<div class="media-heading-small">Last seen 3:31 PM</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="img/doc/doc10.jpg" width="35"
-												height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Anjelina Cardella</h5>
-												<div class="media-heading-sub">Physiotherapist</div>
-												<div class="media-heading-small">Last seen 7:45 PM</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
 						</div>
-						<!-- End Doctor Chat -->
-						<!-- Start Setting Panel -->
-						<div class="tab-pane chat-sidebar-settings" role="tabpanel" id="quick_sidebar_tab_3">
-							<div class="chat-sidebar-settings-list slimscroll-style">
-								<div class="chat-header">
-									<h5 class="list-heading">Layout Settings</h5>
-								</div>
-								<div class="chatpane inner-content ">
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Sidebar Position</div>
-											<div class="setting-set">
-												<select
-													class="sidebar-pos-option form-control input-inline input-sm input-small ">
-													<option value="left" selected="selected">Left</option>
-													<option value="right">Right</option>
-												</select>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Header</div>
-											<div class="setting-set">
-												<select
-													class="page-header-option form-control input-inline input-sm input-small ">
-													<option value="fixed" selected="selected">Fixed</option>
-													<option value="default">Default</option>
-												</select>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Footer</div>
-											<div class="setting-set">
-												<select
-													class="page-footer-option form-control input-inline input-sm input-small ">
-													<option value="fixed">Fixed</option>
-													<option value="default" selected="selected">Default</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="chat-header">
-										<h5 class="list-heading">Account Settings</h5>
-									</div>
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Notifications</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-1">
-														<input type="checkbox" id="switch-1" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Show Online</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-7">
-														<input type="checkbox" id="switch-7" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Status</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-2">
-														<input type="checkbox" id="switch-2" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">2 Steps Verification</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-3">
-														<input type="checkbox" id="switch-3" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="chat-header">
-										<h5 class="list-heading">General Settings</h5>
-									</div>
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Location</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-4">
-														<input type="checkbox" id="switch-4" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Save Histry</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-5">
-														<input type="checkbox" id="switch-5" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Auto Updates</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-6">
-														<input type="checkbox" id="switch-6" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+							
+							
+					
+							
+					</div>		 
+					<ul class="nav header-navbar-rht">
+						<li class="nav-item contact-item">
+							<div class="header-contact-img">
+								<i class="far fa-hospital"></i>							
 							</div>
+							<div class="header-contact-detail">
+								<p class="contact-header">Contact</p>
+								<p class="contact-info-header"> +1 315 369 5943</p>
+							</div>
+						</li>
+						
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow logged-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+								
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="user-header">
+									<div class="avatar avatar-sm">
+										<img src="{{doctor.imageurl}}" alt="User Image" class="avatar-img rounded-circle">
+									</div>
+									<div class="user-text">
+										<h6>{{doctor.doctor.username}}</h6>
+										<p class="text-muted mb-0">Doctor</p>
+									</div>
+								</div>
+		
+								<a class="dropdown-item" href="{% url 'Logout' %} ">Logout</a>
+							</div>
+						</li>
+						<!-- /User Menu -->
+						
+					</ul>
+				</nav>
+			</header>
+			<!-- /Header -->
+			
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Dashboard</h2>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- end chat sidebar -->
-		</div>
-		<!-- end page container -->
-		<!-- start footer -->
-		<div class="page-footer">
-			<div class="page-footer-inner"> 2017 &copy; RedStar Hospital Theme By
-				<a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">RT Theme maker</a>
-			</div>
-			<div class="scroll-to-top">
-				<i class="icon-arrow-up"></i>
-			</div>
-		</div>
-		<!-- end footer -->
-	</div>
-	<!-- start js include path -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery/jquery.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/popper/popper.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery-blockUI/jquery.blockui.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery.slimscroll/jquery.slimscroll.js"></script>
-	<!-- bootstrap -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/js/bootstrap.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<!-- Common js-->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/app.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/layout.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/theme-color.js"></script>
-	<!-- Material -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/material/material.min.js"></script>
-	<!-- end js include path -->
-</body>
+			<!-- /Breadcrumb -->
+			
+			<!-- Page Content -->
+		
+			<div class="content">
+				<div class="container-fluid">
 
+					<div class="row">
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+							
+							<!-- Profile Sidebar -->
+							<div class="profile-sidebar">
+								<div class="widget-profile pro-widget-content">
+									<div class="profile-info-widget">
+										<a href="#" class="booking-doc-img">
+											<img src="{{doctor.imageurl}}" alt="User Image">
+										</a>
+										<div class="profile-det-info">
+											<h3>Dr. {{doctor.doctor.username}}</h3>
+											
+											<div class="patient-details">
+												<h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li class="active">
+												<a href="doctor-dashboard.html">
+													<i class="fas fa-columns"></i>
+													<span>Dashboard</span>
+												</a>
+											</li>
+											<li>
+												<a href="{% url 'view_appointment'  doctor.id %}">
+													<i class="fas fa-calendar-check"></i>
+													<span>Appointments</span>
+												</a>
+											</li>
+											<!-- <li>
+												<a href="my-patients.html">
+													<i class="fas fa-user-injured"></i>
+													<span>My Patients</span>
+												</a>
+											</li> -->
+											<li>
+												<a href="{% url 'addschedule' doctor.id %}">
+													<i class="fas fa-hourglass-start"></i>
+													<span>Schedule Timings</span>
+												</a>
+											</li>
+											
+											
+											
+											<li>
+										
+												<a href="{% url 'password_change' doctor.doctor_id %}">
+													<i class="fas fa-lock"></i>
+													<span>Change Password</span>
+												</a>
+											
+											</li>
+											
+										</ul>
+									</nav>
+								</div>
+							</div>
+							<!-- /Profile Sidebar -->
+							
+						</div>
+						{% block content %}
+						
+					
+						{%endblock content %}
+					
+					</div>
 
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/blank_page.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 May 2021 09:46:38 GMT -->
+				</div>
+
+			</div>		
+			<!-- /Page Content -->
+			
+   
+			<!-- Footer -->
+			<footer class="footer">
+				
+				<!-- Footer Top -->
+				<div class="footer-top">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<div class="footer-logo">
+										<img src="assets/img/footer-logo.png" alt="logo">
+									</div>
+									<div class="footer-about-content">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+										<div class="social-icon">
+											<ul>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Patients</h2>
+									<ul>
+										<li><a href="search.html">Search for Doctors</a></li>
+										<li><a href="login.html">Login</a></li>
+										<li><a href="register.html">Register</a></li>
+										<li><a href="booking.html">Booking</a></li>
+										<li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Doctors</h2>
+									<ul>
+										<li><a href="appointments.html">Appointments</a></li>
+										<li><a href="chat.html">Chat</a></li>
+										<li><a href="login.html">Login</a></li>
+										<li><a href="doctor-register.html">Register</a></li>
+										<li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Contact Us</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+											+1 315 369 5943
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											doccure@example.com
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<!-- /Footer Top -->
+				
+				<!-- Footer Bottom -->
+                <div class="footer-bottom">
+					<div class="container-fluid">
+					
+						<!-- Copyright -->
+						<div class="copyright">
+							<div class="row">
+								<div class="col-md-6 col-lg-6">
+									<div class="copyright-text">
+										<p class="mb-0">&copy; 2020 Doccure. All rights reserved.</p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6">
+								
+									<!-- Copyright Menu -->
+									<div class="copyright-menu">
+										<ul class="policy-menu">
+											<li><a href="term-condition.html">Terms and Conditions</a></li>
+											<li><a href="privacy-policy.html">Policy</a></li>
+										</ul>
+									</div>
+									<!-- /Copyright Menu -->
+									
+								</div>
+							</div>
+						</div>
+						<!-- /Copyright -->
+						
+					</div>
+				</div>
+				<!-- /Footer Bottom -->
+				
+			</footer>
+			<!-- /Footer -->
+		   
+		</div>
+		<!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="{% static 'shop/assets/js/jquery.min.js' %}"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="{% static 'shop/assets/js/popper.min.js' %}"></script>
+		<script src="{% static 'shop/assets/js/bootstrap.min.js' %}"></script>
+		
+		<!-- Sticky Sidebar JS -->
+        <script src="{% static 'shop/assets/plugins/theia-sticky-sidebar/ResizeSensor.js' %}"></script>
+        <script src="{% static 'shop/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js' %}"></script>
+		
+		<!-- Circle Progress JS -->
+		<script src="{% static 'shop/assets/js/circle-progress.min.js' %}"></script>
+		
+		<!-- Custom JS -->
+		<script src="{% static 'shop/assets/js/script.js' %}"></script>
+		
+	</body>
+
+<!-- Mirrored from doccure-html.dreamguystech.com/template/doctor-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:26:41 GMT -->
 </html>
+

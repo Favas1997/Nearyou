@@ -1,142 +1,54 @@
 {% extends "doctors/blank_page.html" %}
-
-<!DOCTYPE html>
-<html lang="en">
-<!-- BEGIN HEAD -->
-
-
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/schedule.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:05:46 GMT -->
-
-
-<body
-	
-		
-			{% block content %}
-			<div class="page-content-wrapper">
-				<div class="page-content">
-					<div class="page-bar">
-						<div class="page-title-breadcrumb">
-							<div class=" pull-left">
-								<div class="page-title">Doctor Schedule</div>
+{% block content %}
+<div class="col-md-7 col-lg-8 col-xl-9">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-9 col-sm-12">
+					<div class="panel">
+						<header class="panel-heading panel-heading-blue">
+							schedule</header>
+						<div class="panel-body">
+							<form class="form-group" method="POST" action="{%url 'addschedule' doctor.id %}">
+							{%csrf_token%}
+							<div id="calendar" class="has-toolbar"> 
+								<span style="color: rgb(4, 5, 4); font-size: larger; font-weight: bolder; color: seagreen;"> Make Your Slot</span>
+							<br>
+							<input type="checkbox" id="10AM - 10.30AM" name="10AM-10.30AM" value="10.00 AM - 10.30 AM">
+							<label for="10AM - 10.30AM">10.00 AM - 10.30 AM</label><br>
+							<input type="checkbox" id="10.30 AM - 11 AM" name="10.30AM-11.00AM" value="10.30 AM - 11.00 AM">
+							<label for="10.30 AM - 11.00AM">10.30 AM - 11.00 AM</label> <br> 
+							<input type="checkbox" id="11 AM - 11.30 AM" name="11.00AM-11.30AM" value="11.00 AM - 11.30 AM">
+							<label for="11.00 AM - 11.30 AM">11.00 AM - 11.30 AM</label><br>
+							<input type="checkbox" id="11.30AM - 12.00PM" name="11.30AM-12.00PM" value="11.30 AM - 12.00 PM">
+							<label for="11.30 AM - 12.00 PM">11.30 AM - 12.00 PM</label><br>
+							<input type="checkbox" id="12.00 PM - 12.30 PM" name="12.00PM-12.30PM" value="12.00 PM - 12.30 PM">
+							<label for="12.00 PM - 12.30 PM">12.00 PM - 12.30 PM</label><br>
+							<input type="checkbox" id="4.00 PM - 4.30 PM" name="4.00PM-4.30PM" value="4.00 PM - 4.30 PM">
+							<label for="4.00 PM - 4.30 PM">4.00 PM - 4.30 PM</label><br>
+							<input type="checkbox" id="4.30 PM - 5.00 PM" name="4.30PM-5.00PM" value="4.30 PM - 5.00 PM">
+							<label for="4.30 PM - 5.00 PM">4.30 PM - 5.00 PM</label><br>
+							<input type="checkbox" id="5.00 PM - 5.30 PM" name="5.00PM-5.30PM" value="5.00 PM - 5.30 PM">
+							<label for="5.00 PM - 5.30 PM">5.00 PM - 5.30 PM</label><br>
+							<input type="checkbox" id="5.30 PM - 6.00 PM" name="5.30PM-6.00PM" value="5.30 PM - 6.00 PM">
+							<label for="5.30 PM - 6.00 PM">5.30 PM - 6.00 PM</label><br>
+							<div class="form-group text-center m-b-0">
+								<button class="btn btn-primary account-btn" type="submit">Submit</button>
 							</div>
-							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-										href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li><a class="parent-item" href="#">Appointment</a>&nbsp;<i
-										class="fa fa-angle-right"></i>
-								</li>
-								<li class="active">Doctor Schedule</li>
-							</ol>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-9 col-sm-12">
-									<div class="panel">
-										<header class="panel-heading panel-heading-blue">
-											schedule</header>
-										<div class="panel-body">
-											<form class="form-group" method="POST" action="{%url 'addschedule' doctor.id %}">
-											{%csrf_token%}
-											<div id="calendar" class="has-toolbar"> 
-												<span style="color: rgb(4, 5, 4); font-size: larger; font-weight: bolder; color: seagreen;"> Make Your Slot</span>
-                                            <br>
-                                            <input type="checkbox" id="10AM - 10.30AM" name="10AM-10.30AM" value="10.00 AM - 10.30 AM">
-                                            <label for="10AM - 10.30AM">10.00 AM - 10.30 AM</label><br>
-						                    <input type="checkbox" id="10.30 AM - 11 AM" name="10.30AM-11.00AM" value="10.30 AM - 11.00 AM">
-                                            <label for="10.30 AM - 11.00AM">10.30 AM - 11.00 AM</label> <br> 
-                                            <input type="checkbox" id="11 AM - 11.30 AM" name="11.00AM-11.30AM" value="11.00 AM - 11.30 AM">
-                                            <label for="11.00 AM - 11.30 AM">11.00 AM - 11.30 AM</label><br>
-                                            <input type="checkbox" id="11.30AM - 12.00PM" name="11.30AM-12.00PM" value="11.30 AM - 12.00 PM">
-                                            <label for="11.30 AM - 12.00 PM">11.30 AM - 12.00 PM</label><br>
-                                            <input type="checkbox" id="12.00 PM - 12.30 PM" name="12.00PM-12.30PM" value="12.00 PM - 12.30 PM">
-                                            <label for="12.00 PM - 12.30 PM">12.00 PM - 12.30 PM</label><br>
-                                            <input type="checkbox" id="4.00 PM - 4.30 PM" name="4.00PM-4.30PM" value="4.00 PM - 4.30 PM">
-                                            <label for="4.00 PM - 4.30 PM">4.00 PM - 4.30 PM</label><br>
-                                            <input type="checkbox" id="4.30 PM - 5.00 PM" name="4.30PM-5.00PM" value="4.30 PM - 5.00 PM">
-                                            <label for="4.30 PM - 5.00 PM">4.30 PM - 5.00 PM</label><br>
-                                            <input type="checkbox" id="5.00 PM - 5.30 PM" name="5.00PM-5.30PM" value="5.00 PM - 5.30 PM">
-                                            <label for="5.00 PM - 5.30 PM">5.00 PM - 5.30 PM</label><br>
-                                            <input type="checkbox" id="5.30 PM - 6.00 PM" name="5.30PM-6.00PM" value="5.30 PM - 6.00 PM">
-                                            <label for="5.30 PM - 6.00 PM">5.30 PM - 6.00 PM</label><br>
-											<div class="form-group text-center m-b-0">
-												<button class="btn btn-primary account-btn" type="submit">Submit</button>
-											</div>
-
-
-                                            <!-- <input type="checkbox" id="6 PM - 7 PM" name="5.30PM-6.00PM" value="5.30 PM - 6.00 PM">
-                                            <label for="6 PM - 7 PM">6 PM - 7 PM</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-                                            <!-- <input type="checkbox" id="7 PM - 8 PM" name="7PM-8PM" value="7 PM - 8 PM">
-                                            <label for="7 PM - 8 PM">7 PM - 8 PM</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="checkbox" id="8 PM - 9 PM" name="8PM-9PM" value="8 PM - 9 PM">
-                                            <label for="8 PM - 9 PM">8 PM - 9 PM</label><br>
-                                            <input type="checkbox" id="9 PM - 10 PM" name="9PM-10PM" value="9 PM - 10 PM">
-                                            <label for="9 PM - 10 PM">9 PM - 10 PM</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="checkbox" id="10 PM - 11 PM" name="10PM-11PM" value="10 PM - 11 PM">
-                                            <label for="10 PM - 11 PM">10 PM - 11 PM</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="checkbox" id="11 PM - 12 AM" name="11PM-12AM" value="11 PM - 12 AM">
-                                            <label for="11 PM - 12 AM">11 PM - 12 AM</label><br> -->
-										</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- <div class="col-md-3 col-sm-12">
-									<div class="panel">
-										<header class="panel-heading panel-heading-blue">
-											Draggable Events </header>
-										<div class="panel-body">
-											<div id="external-events">
-												<form class="inline-form">
-													<input type="text" value="" class="form-control"
-														placeholder="Event Title..." id="event_title" />
-													<br />
-													<a href="javascript:;" id="event_add" class="btn btn-success"> Add
-														Schedule </a>
-												</form>
-												<hr />
-												<div id="event_box" class="mg-bottom-10"></div>
-												<label class="rt-chkbox rt-chkbox-single rt-chkbox-outline"
-													for="drop-remove"> remove after drop
-													<input type="checkbox" class="group-checkable" id="drop-remove" />
-													<span></span>
-												</label>
-											</div>
-										</div>
-									</div>
-								</div> -->
+						</form>
 							</div>
 						</div>
 					</div>
 				</div>
+				
 			</div>
-			<!-- end page content -->
-			
-	<!-- start js include path -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery/jquery.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/popper/popper.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery-blockUI/jquery.blockui.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery.slimscroll/jquery.slimscroll.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
-	<!-- bootstrap -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/js/bootstrap.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<!-- calendar -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/moment/moment.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/fullcalendar/fullcalendar.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/data/calendar-data.js"></script>
-	<!-- Common js-->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/app.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/layout.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/theme-color.js"></script>
-	<!-- Material -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/material/material.min.js"></script>
-	<!-- end js include path -->
-	{% endblock content %}
-</body>
 
 
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/schedule.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:05:46 GMT -->
-</html>
+
+
+
+</div>
+
+
+
+{% endblock content %}

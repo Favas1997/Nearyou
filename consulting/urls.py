@@ -22,6 +22,6 @@ urlpatterns = [
     path("",include('patients.urls')),
     path("doctors/",include('doctors.urls')),
     path("admin/",include('Admin1.urls')),
-    path("medicalshop",include('medicalshop.urls')),
+    path("medicalshop/",include('medicalshop.urls')),
 ]
 urlpatterns = urlpatterns+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

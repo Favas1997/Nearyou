@@ -1,0 +1,240 @@
+<!DOCTYPE html> 
+{% load static %}
+<html lang="en">
+	<link rel="stylesheet" type="text/css" href="{% static 'patients/videocall/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'patients/videocall/video.css' %}">
+	
+<!-- Mirrored from doccure-html.dreamguystech.com/template/video-call.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:27:58 GMT -->
+<head>
+		<meta charset="utf-8">
+		<title>Doccure</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="{% static 'shop/assets/img/favicon.png'%}" rel="icon">
+		
+		<!-- Bootstrap CSS --> 
+		<link rel="stylesheet" href="{% static 'shop/assets/css/bootstrap.min.css' %}">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="{% static 'shop/assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'shop/assets/plugins/fontawesome/css/all.min.css' %}">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="{% static 'shop/assets/css/style.css' %}">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body class="call-page">
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+						<!-- /Header -->
+			
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+				
+					<!-- Call Wrapper -->
+					<div class="call-wrapper">
+						<div class="call-main-row">
+							<div class="call-main-wrapper">
+								<div class="call-view">
+									<div class="call-window">
+									
+										<!-- Call Header -->
+										<div class="fixed-header">
+											<div class="navbar">
+												<div class="user-details">
+													
+													
+												
+										           {% if  status.is_staff == False %}
+												   <div class="float-left user-img">
+													<a class="avatar avatar-sm mr-2" href="patient-profile.html" title="Charlene Reed">
+														<img src="{% static 'shop/assets/img/patients/patient1.jpg'%}" alt="User Image" class="rounded-circle">
+														<span class="status online"></span>
+													</a>
+												    </div>
+													<div class="user-info float-left">
+														<a href="patient-profile.html"><span>{{status.username}}</span></a>
+														<span class="last-seen">Ofline</span>
+													</div>
+													{% elif status.is_staff == True %}
+													<div class="user-info float-left">
+														<a href="patient-profile.html"><span>{{status.username}}</span></a>
+														<span class="last-seen">Online</span>
+													</div>
+													{% endif %}
+													{% if  doctor.is_staff == False %}
+													<div class="float-left user-img">
+														<a class="avatar avatar-sm mr-2" href="patient-profile.html" title="Charlene Reed">
+															<img src="{% static 'shop/assets/img/patients/patient1.jpg'%}" alt="User Image" class="rounded-circle">
+															<span class="status online"></span>
+														</a>
+													</div>
+													<div class="user-info float-left">
+														<a href="patient-profile.html"><span>{{doctor.username}}</span></a>
+														<span class="last-seen">Ofline</span>
+													</div>
+													{% elif doctor.is_staff == True %}
+													<div class="user-info float-left">
+														<a href="patient-profile.html"><span>{{doctor.username}}</span></a>
+														<span class="last-seen">Online</span>
+													</div>
+													{% endif %}
+
+													
+
+												</div>
+												<ul class="nav float-right custom-menu">
+													<li class="nav-item dropdown dropdown-action">
+														<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-cog"></i></a>
+														<div class="dropdown-menu dropdown-menu-right">
+															<a href="javascript:void(0)" class="dropdown-item">Settings</a>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+										
+										<div class="call-contents">
+											<div class="call-content-wrap">
+												<div class="col-md-6 sub-container">
+													<div  id="video-lobby"  >
+													<!--remote video will appear here-->
+														<!-- <ul class="call-btn-list">
+															<li style="margin-top:18rem;margin-left:-2rem;"><button class="effects" id="video-stream-btn" ><img src="{% static 'images/video-end-btn.png'%}" alt="" id="remote-video-call-btn" ></button></li> 
+															<li style="margin-top:18rem;margin-left:-30rem;"><button class="effects"><img src="{% static 'images/call-end-btn.jpg'%}" alt="" ></button ></li>
+															<li style="margin-top:18rem;margin-left:-30rem;"><button class="effects" id="audio-stream-btn"><img src="{% static 'images/mic-mute-btn.jpg'%}" alt="" id="remote-audio-btn"></button></li>
+														</ul> -->
+													</div>
+													<div id="local-vid-lobby" style="display:none;">
+														<video class="video-fluid" id="local-video" src="" autoplay playsinline></video>
+														<ul class="remote-call-btn-list" >
+															<li ><button class="effects" id="video-btn"><img src="{% static 'images/video-call-btn.png'%}" alt="" id="video-call-btn"></button></li>
+															<li style="margin-left:-3rem;"><button class="effects" id="video-stream-btn"  onclick="end()"><img src="{% static 'images/call-end-btn.jpg'%}" alt=""></button></li>
+															<li style="margin-left:-3rem;"><button class="effects" id="audio-btn"><img src="{% static 'images/mic-btn.png'%}" alt="" id="mic-btn"></button></li>
+														</ul>
+													</div>
+													<div class="p-3">
+														{% if request.user.id == check %}
+														<form>
+															
+															<div class="input-group">
+										
+																<textarea class="form-control" aria-label="With textarea"  style="height: 200px;" placeholder="description" id="description"></textarea>
+															  </div>
+															
+															
+															<button type="button" class="btn btn-primary" id="des-btn">Sign in</button>
+														  </form>
+														{% endif %}
+										
+													  
+													</div>
+													
+													
+												   
+												</div
+												
+											</div>
+										</div>
+										
+										
+										
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<!-- /Call Wrapper -->
+					
+				</div>
+
+			</div>		
+			
+			
+		</div>
+		{{ roomCode|json_script:"room-code"}}
+    {{ request.user.username|json_script:"user_username"}}
+    {{ request.user.id|json_script:"user_id"}}
+    <script>
+        var videosStreamIcon = document.getElementById("video-stream-btn");
+
+        videosStreamIcon.addEventListener('click', () => {
+                console.log("working");
+                document.getElementById("-video").videoTracks.enabled = "True";
+                document.getElementById("remote-video-call-btn").src = "http://127.0.0.1:8000/static/images/video-call-btn.png";
+        });
+    </script>
+
+    <script src="{% static 'js/videocall.js' %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $('#des-btn').click(function(){
+            var description =$('#description').val()
+            var medicalshop =$('#medicalshop').val()
+            var data = {
+                    'csrfmiddlewaretoken':'{{csrf_token}}',
+                    'description':description,
+                    'medicalshop':medicalshop,
+                    
+                }
+                if(description==''){
+                    $('#error').html('<h6>Enter Description </h6>')
+                }else if(medicalshop==''){
+                    $('#error').html('<h6>Select medical shop</h6>')
+                }else{
+                    
+                    $.ajax({
+                        url:'/description/',
+                        method:'POST',
+                        data:data,
+                        dataType:'json',
+                        success:function(data){
+                        console.log(data)
+                            if(data == 'true'){
+                                alert('description added')
+                                window.location.replace('/doctors/home/')
+                            }
+                        }
+                    })
+                }
+            })
+        </script>
+        <script>
+			function end(){
+				if (confirm('Are you sure you want to exist from call')) {
+                window.location.replace('/booking_list/');
+                }else {
+ 
+                }
+			    
+			}
+			
+		</script>
+		<!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="assets/js/jquery.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>
+		
+	</body>
+
+<!-- Mirrored from doccure-html.dreamguystech.com/template/video-call.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:27:59 GMT -->
+</html>

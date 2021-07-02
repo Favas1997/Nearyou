@@ -9,9 +9,40 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    
                     <div class="mt-3">
-                      <h4>{{profile.username}}</h4>
+                      <h4>{{user.username}}</h4>
+                      <div>
+                        <label> <img src="{{profile.imageurl1}}"  alt="Admin" class="rounded-circle" width="150"> <input type="file" id="file" onchange="image()"></label>
+                        
+                      </div>
+                      <style>
+                        #file{
+                        display:none;
+                      }
+                      </style>
+                     
+                      
+                    </div>
+                    <style>
+                      input.hidden {
+                      position: absolute;
+                      left: -9999px;
+                      }
+
+        #profile-image {
+        cursor: pointer;
+        background: #545e61;
+ 	      width: 150px;
+        height: 40px;
+}
+                    </style>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    
+                    <div class="mt-3">
                       <a class="btn bg-primary" href="{% url 'booking_list' %}">booking list</a>
                     </div>
                   </div>
@@ -26,7 +57,7 @@
                       <h6 class="mb-0">Username</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{profile.username}}
+                      {{user.username}}
                     </div>
                   </div>
                   <hr>
@@ -35,7 +66,7 @@
                       <h6 class="mb-0">Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{profile.first_name}}
+                      {{user.first_name}}
                     </div>
                   </div>
                   <hr>
@@ -53,7 +84,7 @@
                       <h6 class="mb-0">email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{profile.email}}
+                      {{user.email}}
                     </div>
                   </div>
                   <hr>
@@ -162,6 +193,35 @@ body{
 }
 
     </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function image(){
+    console.log("favas")
+    console.log('aaaaaa')
+					   var formData = new FormData();
+					   formData.append("image_upload", document.getElementById("file").files[0]);
+					   formData.append('csrfmiddlewaretoken','{{csrf_token}}');
+					
+	
+					$.ajax({
+						url:'/addimage/',
+						method:'POST',
+						data:formData,
+						cache:false,
+						contentType:false,
+						processData:false,
+						dataType:'json',
+						success:function(data){
+							if (data=='true'){
+							   window.location.replace('/profile/')
+							}
+							
+							
+						}
+					})
+  }
+
+</script>
 
 
 {% endblock content %}

@@ -55,7 +55,7 @@
 										</div>
 										<form>
 											<div class="form-group form-focus">
-												<input type="email" class="form-control floating" id="email">
+												<input type="text" class="form-control floating" id="username">
 												<label class="focus-label">Email</label>
 											</div>
 											<div class="form-group form-focus">
@@ -73,10 +73,10 @@
 											</div>
 											<div class="row form-row social-login">
 												<div class="col-12">
-													<a href="#" class="btn btn-facebook btn-block"> Login with otp</a>
+													<a href="{% url 'otplogin' %}" class="btn btn-facebook btn-block"> Login with otp</a>
 												</div>
 												<!-- <div class="col-6">
-													<a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
+													<a href="#" ="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
 												</div> -->
 											</div>
 											
@@ -116,16 +116,16 @@
 
          function login(){
 			var password = $('#password').val()
-            var email = $('#email').val()
+            var username = $('#username').val()
             var data= {
 					'csrfmiddlewaretoken': '{{csrf_token}}',
-                    'email':email,
+                    'username':username,
                     'password':password,
                     
 	
 				 }
-				 if (email == '') {
-					$('#error').html('Please type your email')
+				 if (username == '') {
+					$('#error').html('Please type your username')
 				}
                 else if (password== "") {
 					$("#error").html("Please type your password")

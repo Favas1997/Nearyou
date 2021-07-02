@@ -1,17 +1,18 @@
+from django.contrib.auth.models import User
 from django.db import models
-from django import forms
+from django.core.cache import cache 
+import datetime
+from consulting import settings
 # Create your models here.
 class doctors(models.Model):
-    name=models.CharField(max_length=150)
+    doctor= models.OneToOneField(User, on_delete=models.CASCADE)
     experience=models.IntegerField()
     designation = models.CharField(max_length=100)
-    email = models.EmailField(max_length=20)
-    password = models.CharField(max_length=100)
     department = models.CharField(max_length=50)
     gender= models.CharField(max_length=50)
     hospital= models.CharField(max_length=100)
     address= models.CharField(max_length=100)
-    mobile = models.CharField(max_length=20)
+    mobile = models.CharField(max_length=20,unique=True)
     education= models.CharField(max_length=100)
     profile_image= models.ImageField(upload_to='media/')
 
@@ -22,10 +23,21 @@ class doctors(models.Model):
         else:
             image = self.profile_image.url
         return image
+    def last_seen(self):
+        return cache.get('seen_%s' % self.doctor.username)
+
+    def online(self):
+        if self.last_seen():
+            now = datetime.datetime.now()
+            if now > self.last_seen() + datetime.timedelta(
+                        seconds=settings.USER_ONLINE_TIMEOUT):
+                return False
+            else:
+                return True
+        else:
+            return False  
 class MedicalShop(models.Model):
-    name=models.CharField(max_length=150)
+    shop=models.OneToOneField(User, on_delete=models.CASCADE)
     experience=models.IntegerField()
-    email = models.EmailField(max_length=20)
-    password = models.CharField(max_length=100)
-    mobile = models.CharField(max_length=20)
+    mobile = models.CharField(max_length=20,unique=True)
     place = models.CharField(max_length=20)

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -49,38 +50,24 @@
 										<li class="nav-item">
 											<a href="about-us.html" class="nav-link">About Us</a>
 										</li>
-										<li class="nav-item">
-											<a href="departments.html" class="nav-link">Departments</a>
-										</li>
+										
 										<li class="nav-item">
 											<a href="services.html" class="nav-link">Services</a>
 										</li>
 										<li class="nav-item">
 											<a href="doctors.html" class="nav-link">Doctors</a>
 										</li>
-										<li class="dropdown nav-item"> 
-											<a class="dropdown-toggle nav-link" data-toggle="dropdown">Blog <b class="caret"></b></a>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="blog.html">Right Sidebar</a>
-												<a class="dropdown-item" href="blog-left-sidebar.html">Left Sidebar</a>
-												<a class="dropdown-item" href="blog-full-width.html">Full Width</a>
-												<a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
-												<a class="dropdown-item" href="blog-details.html">Blog Details</a>
-											</div>
-										</li>
+										
 										<li class="nav-item">
 											<a href="contact-us.html" class="nav-link">Contact Us</a>
 										</li>
-										<li class="nav-item">
-											<a class="btn btn-primary appoint-btn nav-link" href="appointment.html">Appointment</a>
-										</li>
+										
 										<li class="dropdown nav-item"> 
 											<a class="dropdown-toggle settings-icon nav-link" data-toggle="dropdown"><i class="fas fa-cog"></i></a>
 											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="login.html">Login</a>
+												
 												<a class="dropdown-item" href="register.html">Register</a>
-												<a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-												<a class="dropdown-item" href="404.html">404</a>
+												
 											</div>
 										</li>
 									</ul>
@@ -176,16 +163,7 @@
 							<a href="register.html">Register</a>
                         </div>
                     </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="forgot-password.html">Forgot Password</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="404.html">404</a>
-                        </div>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -196,30 +174,27 @@
             <div class="content">
                 <div class="container">
                     <div class="account-box">
-                        <form class="form-signin" action="{% url 'login'%}" method="POST" novalidate>
-                            {% csrf_token %}
+                        <form class="form-signin">
+    
                             <div class="account-title">
                                  <h3>Login</h3>
                             </div>
-                            <!-- <div class="form-group">
-                                <label>Username or Email</label>
-                                <input type="text" class="form-control" autofocus>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input id="username" type="text" class="form-control" autofocus>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control">
-                            </div> -->
-                            <table>
-                                {{form.as_table}}
-                              </table>
-                            <div class="form-group text-right"> 
-								<a href="forgot-password.html">Forgot your password?</a>
+                                <input id="password" type="password" class="form-control">
                             </div>
+                            <span style="color: red;" id="error"></span>
+            
+                            
                             <div class="form-group text-center">
-                                <button class="btn btn-primary account-btn" type="submit">Login</button>
+                                <button id="login-btn" class="btn btn-primary account-btn" type="button">Login</button>
                             </div>
                             <div class="text-center register-link">Don&#x2019;t have an account? 
-								<a href="register.html">Register Now</a>
+								<a href="{% url 'signup'%}">Register Now</a>
                                 
                             </div>
                             <div class="col-md-12 ">
@@ -236,6 +211,43 @@
                 </div>
             </div>
         </div> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $('#login-btn').click(function(){
+            var username =$('#username').val()
+            var password =$('#password').val()
+            var data = {
+                    'csrfmiddlewaretoken':'{{csrf_token}}',
+                    'username':username,
+                    'password':password,
+                    
+                }
+                if(username==''){
+                    $('#error').html('<h6>Enter your username </h6>')
+                }else if(password==''){
+                    $('#error').html('<h6>Enter  your password</h6>')
+                }else{
+                    console.log('hi')
+                    $.ajax({
+                        url:'/login/',
+                        method:'POST',
+                        data:data,
+                        dataType:'json',
+                        success:function(data){
+                        console.log(data)
+                            if(data == 'true'){
+                                window.location.replace('/')
+                            }
+                            if(data == 'false'){
+                                $('#error').html('<h6>No user exist</h6>')
+                            }
+                            
+                        }
+                    })
+                }
+            })
+        </script>
+
 
 
 

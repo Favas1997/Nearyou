@@ -1,221 +1,292 @@
 {% extends "admin/blank_page.html" %}
-
-<!DOCTYPE html>
-<html lang="en">
-<!-- BEGIN HEAD -->
-
-
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/add_doctor.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:05:51 GMT -->
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta name="description" content="Responsive Admin Template" />
-    <meta name="author" content="RedstarHospital" />
-    
-</head>
-<!-- END HEAD -->
-
-<body
-    
-            
-            <!-- start page content -->
-            {% block content %}
-            <div class="page-content-wrapper">
-                <div class="page-content">
-                    <div class="page-bar">
-                        <div class="page-title-breadcrumb">
-                            <div class=" pull-left">
-                                <div class="page-title">Add Doctor</div>
-                            </div>
-                            <ol class="breadcrumb page-breadcrumb pull-right">
-                                <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-                                        href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-                                </li>
-                                <li><a class="parent-item" href="#">Doctors</a>&nbsp;<i class="fa fa-angle-right"></i>
-                                </li>
-                                <li class="active">Add Doctor</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="card card-box">
-                                <div class="card-head">
-                                    <header>Basic Information</header>
-                                    <button id="panel-button"
-                                        class="mdl-button mdl-js-button mdl-button--icon pull-right"
-                                        data-upgraded=",MaterialButton">
-                                        <i class="material-icons">more_vert</i>
-                                    </button>
-                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                                        data-mdl-for="panel-button">
-                                        <li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
-                                        </li>
-                                        <li class="mdl-menu__item"><i class="material-icons">print</i>Another action
-                                        </li>
-                                        <li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
-                                            here
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body" id="bar-parent">
-                                    <form action="add_doctor" id="form_sample_1" class="form-horizontal"  method="POST" enctype="multipart/form-data" >
-                                        {% csrf_token %}
-                                        <div class="form-body">
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Name
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input type="text" name="name" data-required="1"
-                                                        placeholder="enter name"
-                                                        class="form-control input-height" />
+			
+			{% block content %}
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					
+					<!-- /Page Header -->
+					
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">Add Doctor</h4>
+								</div>
+								<div class="card-body">
+									<form >
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Name</label>
+											<div class="col-md-10">
+												<input type="text" name="name" id="name" class="form-control" required>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Experience</label>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="experience" id="experience" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Email</label>
+											<div class="col-md-10">
+												<input type="text" class="form-control" name="email" id="email" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Password</label>
+											<div class="col-md-10">
+												<input type="password" class="form-control" name="password1" id="password1" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Confirm password</label>
+											<div class="col-md-10">
+												<input  class="form-control" type="password" name="password2" id="password2" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Designation</label>
+											<div class="col-md-10">
+												<input  class="form-control" type="text" name="designation" id="designation" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Departments</label>
+											<div class="col-md-10">
+												<select class="form-control" id="department" required>
+													<option value="">Select...</option>
+                                                        <option value="Neurology">Neurology</option>
+                                                        <option value="Orthopedics">Orthopedics</option>
+                                                        <option value="Gynaecology">Gynaecology</option>
+                                                        <option value="Microbiology">Microbiology</option>
+                                                        <option value="Radiotherapy">Radiotherapy</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Gender</label>
+											<div class="col-md-10">
+												<select class="form-control" id="gender" required>
+													<option value="">Select...</option>
+											
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Mobile</label>
+											<div class="col-md-10">
+												<input  class="form-control" type="text" name="number" id="number" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Hospital</label>
+											<div class="col-md-10">
+												<input  class="form-control" type="text" name="hospital" id="hospital" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Address</label>
+											<div class="col-md-10">
+												<input  class="form-control" type="text" name="address" id="address" required>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Education</label>
+											<div class="col-md-10">
+												<input  class="form-control" type="text" name="education" id="education" required>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-2">Image</label>
+											<div class="col-md-10">
+												<img id="cropped" class="cropped" src="" onclick="openImage()"  
+                                                     style="height: 10rem; width: 10rem;">
+                                                    <input type="file" name="image1" id="image1" oninput= "cropped.src=window.URL.createObjectURL(this.files[0])" accept="image/*">
+											</div>
+										</div>
+										<div class="form-actions">
+											<div class="row">
+												<div class=" col-md-10">
+													<button type="button" id="submit_button"
+														class="btn btn-info m-r-20">Submit</button>
+													
+												</div>
+											</div>
+										</div>
+										<span  id="message"></span>
+										
+									</form>
+									<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLongTitle">Crop</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="box-2">
+                                                    <div class="result"></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Experience
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input type="text" name="experience" data-required="1"
-                                                        placeholder="experience"
-                                                        class="form-control input-height" />
-                                                </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" id="load" class="btn save btn-primary">Save changes</button>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Email
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control input-height"
-                                                            name="email" placeholder="Email Address"> </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Password
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input type="password" name="password1" data-required="1"
-                                                        placeholder="enter Password"
-                                                        class="form-control input-height" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Confirm Password
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input type="text" name="password2" data-required="1"
-                                                        placeholder="Reenter your password"
-                                                        class="form-control input-height" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Designation
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input type="text" name="designation" data-required="1"
-                                                        placeholder="enter your designation"
-                                                        class="form-control input-height" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Departments
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <select class="form-control input-height" name="department">
-                                                        <option value="">Select...</option>
-                                                        <option value="Category 1">Neurology</option>
-                                                        <option value="Category 2">Orthopedics</option>
-                                                        <option value="Category 3">Gynaecology</option>
-                                                        <option value="Category 3">Microbiology</option>
-                                                        <option value="Category 3">Radiotherapy</option>
-                                                        <option value="Category 3">Pharmacy</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Gender
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <select class="form-control input-height" name="gender">
-                                                        <option value="">Select...</option>
-                                                        <option value="Male">Male</option>
-                                                        <option value="Female">Female</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Mobile No.
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input name="number" type="text" placeholder="mobile number"
-                                                        class="form-control input-height" /> </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Hospital.
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <input name="hospital" type="text" placeholder="Hospital"
-                                                        class="form-control input-height" /> </div>
-                                            </div>
-                                            
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Address
-                                                    <span class="required"> * </span>
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <textarea name="address" placeholder="address"
-                                                        class="form-control-textarea" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Profile Picture
-                                                </label>
-                                                <div >
-                                                    
-                                                       <input type="file" id="img" name="profile" accept="image/*">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3">Education
-                                                </label>
-                                                <div class="col-md-5">
-                                                    <textarea name="education" class="form-control-textarea"
-                                                        placeholder="Education" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-actions">
-                                                <div class="row">
-                                                    <div class="offset-md-3 col-md-9">
-                                                        <button type="submit"
-                                                            class="btn btn-info m-r-20">Submit</button>
-                                                        <button type="button" class="btn btn-default">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                          </div>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endblock content %}
-          
-</body>
+                                      </div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				
+				</div>			
+			</div>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
+    <script>
+      var imgSrc;
+      let result = document.querySelector(".result"),
+          save = document.querySelector(".save"),
+          cropped = document.querySelector(".cropped"),
+          upload = document.querySelector("#image1"),
+          cropper = "";
 
+      upload.addEventListener("change", (e) => {
+          if (e.target.files.length) {
+              // start file reader
+              const reader = new FileReader();
 
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/add_doctor.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 May 2021 08:05:51 GMT -->
-</html>
+              reader.onload = (e) => {
+                  if (e.target.result) {
+                      // create new image
+                      $("#exampleModalCenter").modal("show");
+                      let img = document.createElement("img");
+                      img.id = "image";
+                      img.src = e.target.result;
+
+                      // clean result before
+                      result.innerHTML = "";
+                      // append new image
+
+                      result.appendChild(img);
+                      // init cropper
+                      cropper = new Cropper(img, {
+                          viewMode: 2,
+                          aspectRatio: 5 / 5,
+                          autoCropArea: 1,
+                      
+                          crop: function (e) {
+                              console.log(e.detail.x);
+                              console.log(e.detail.y);
+                          }
+
+                      });
+
+                  }
+              };
+              reader.readAsDataURL(e.target.files[0]);
+          }
+      });
+
+      save.addEventListener("click", (e) => {
+          e.preventDefault();
+          // get result to data uri
+          imgSrc = cropper
+              .getCroppedCanvas({
+                  width: 500, // img disp value
+              })
+              .toDataURL();
+          $("#exampleModalCenter").modal("hide");
+          cropped.src = imgSrc;
+
+      });
+
+       function openImage() {
+           console.log("favavavavav");
+            $('#image1').click()
+        }
+        
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+  $('#submit_button').click(function () {
+	console.log('qqqqqq')
+	var formData = new FormData();
+	formData.append("name", document.getElementById("name").value);
+	formData.append("experience", document.getElementById("experience").value);
+	formData.append("email", document.getElementById("email").value);
+	formData.append("image1", imgSrc);
+	formData.append("password1", document.getElementById("password1").value);
+	formData.append("password2", document.getElementById("password2").value);
+	formData.append("designation", document.getElementById("designation").value);
+	formData.append("department", document.getElementById("department").value);
+	formData.append("gender", document.getElementById("gender").value);
+	formData.append("number", document.getElementById("number").value);
+	formData.append("hospital", document.getElementById("hospital").value);
+	formData.append("address", document.getElementById("address").value);
+	formData.append("education", document.getElementById("education").value);
+	formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+  
+  
+	// restrict other Filetypes
+	var ext = image1.value.split(".")
+	ext = ext[ext.length - 1].toLowerCase();
+	var arrayExtensions = ["jpg", "png", "svg", "jpeg"];
+	// END RESTRRICT FILE TYPE
+  
+	if (image1.value == '') {
+		$('#message').html('Upload Thumbnail')
+	}
+	else {
+	  console.log('1sabxabxbbhjx')
+		$.ajax({
+			url: '/admin/add_doctor/',
+			type: 'POST',
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false,   
+			dataType: 'JSON',
+			success: function (data) {
+				if (data=='true') {
+				  window.location.replace('index')
+
+				}
+				else if(data=='false'){
+					$('#message').html('email exists')
+					
+				}
+				else if(data=='false1'){
+					$('#message').html('Username exists')
+					
+				}
+				else if(data=='false2'){
+					$('#message').html('Mobile number exists')
+					
+				}
+				else if(data=='false3'){
+					$('#message').html('Password not match')
+					
+				}
+			}
+		})
+  
+	}
+  })
+  
+  </script>
+			{% endblock content %}
+			
+        

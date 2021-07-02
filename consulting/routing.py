@@ -1,0 +1,12 @@
+import patients.routing
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+
+
+application = ProtocolTypeRouter({
+    'websocket': AuthMiddlewareStack(
+        URLRouter(
+            patients.routing.websocket_urlpatterns
+        )
+    ),
+})

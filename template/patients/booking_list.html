@@ -1,10 +1,10 @@
 {% extends "patients/blank.html" %}
 
 {% block content %}
-<div class="row ">
-  <div class="col-md-8 col-sm-12">
+<div class="row  ">
+  <div class="col-md-12 col-sm-6">
     <div class="card  card-box align-items-center">
-      <div class="card-head">
+      <div class="card-head p-3">
         <header class="font-weight-bold">BOOKING DETAILS</header>
         
       </div>
@@ -27,6 +27,7 @@
                 <th>Date</th>
                 <th>Status</th>
                 <th>Actions </th>
+                <th>Call</th>
               </tr>
             </thead>
             <tbody>
@@ -35,7 +36,7 @@
                 
                 
                 <td>
-                  <a href="">{{booking.doctor.name}}</a>
+                  <a href="">{{booking.doctor.doctor.username}}</a>
                 </td>
                 <td>
                   {{booking.doctor.mobile}}
@@ -43,7 +44,7 @@
                 
             
                 <td class="center"> {{booking.slot}} </td>
-                <td>
+                <td id="date">
                   {{booking.date}}
                 </td>
                 <td>
@@ -71,6 +72,16 @@
                   </div>
                 </td>
                 
+                <td>
+                  
+                  {% if booking.date == today %}
+                  <a href="{% url 'videoCall' booking.Room.roomcode %}"><i class="fas fa-video"></i>
+                     </a>
+                  {% else %}
+                  <i class="fas fa-video-slash"></i>
+                  {% endif %}
+                </td>
+                
               </tr>
               {% endfor %}
               
@@ -86,5 +97,6 @@
   </div>
   
 </div>
+
 
 {% endblock content %}
