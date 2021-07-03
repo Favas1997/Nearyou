@@ -1,4 +1,4 @@
-    console.log('favas')
+    console.log('favassssssssssss')
 const roomCode = JSON.parse(document.getElementById('room-code').textContent);
 const user_id = JSON.parse(document.getElementById('user_id').textContent);
 const user_username = JSON.parse(document.getElementById('user_username').textContent);
@@ -89,6 +89,7 @@ const localVideoLobby = document.querySelector('#local-vid-lobby');
 const localVideo = document.querySelector('#local-video');
 const audiobtn = document.querySelector('#audio-btn');
 const videobtn = document.querySelector('#video-btn');
+
 
 var userMedia = navigator.mediaDevices.getUserMedia(constraints)
     .then(stream => {

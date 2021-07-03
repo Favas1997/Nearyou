@@ -176,10 +176,12 @@ MEDIA_ROOT =os.path.join(BASE_DIR,'media')
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
 }
-
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
