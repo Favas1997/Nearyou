@@ -218,4 +218,11 @@ def addimage(request):
         return JsonResponse('true',safe=False)
     else:
         return redirect('login')
-
+def success(request):
+    if request.user.is_authenticated:
+        return render(request,'patients/success.html')
+    else:
+        return redirect('login')
+def contact(request):
+    return render(request,'patients/contact-us.html')
+    

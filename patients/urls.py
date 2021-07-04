@@ -20,7 +20,9 @@ urlpatterns = [
     path('Delete/<int:id>/',views.delete,name='Delete'),
     path('videoCall/<str:roomCode>/',views.videoCall,name='videoCall'),
     path('description/',views.description,name='description'),
-    path('addimage/',views.addimage,name='addimage')
+    path('addimage/',views.addimage,name='addimage'),
+    path('success/',views.success,name='success'),
+    path('contact_us/',views.contact,name='contact_us')
 
 
 ]  
