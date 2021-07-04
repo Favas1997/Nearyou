@@ -121,7 +121,6 @@ AUTHENTICATION_BACKENDS = [
  
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.github.GithubOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
  
  
@@ -208,7 +207,6 @@ CHANNEL_LAYERS = {
         },
     },
 }
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
