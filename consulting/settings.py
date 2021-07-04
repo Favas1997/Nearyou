@@ -23,6 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+SECRET_KEY= config("SECRET_KEY")
+
 ALLOWED_HOSTS = ["139.59.31.45",]
 
 ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
@@ -30,9 +32,6 @@ ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
 WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
 
 ASGI_APPLICATION = f'{config("PROJECT_NAME")}.routing.application'
-
-SECURITY WARNING: keep the secret key used in production secret!
-
 
 ALLOWED_HOSTS = []
 
