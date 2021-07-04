@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,11 +21,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(sg__vwd@wfcpzhd0(c4ncswg=(z^b5-#p8cb@@k*$)bdnq%j0'
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ALLOWED_HOSTS = ["139.59.31.45",]
+
+ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
+
+WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
+
+ASGI_APPLICATION = f'{config("PROJECT_NAME")}.routing.application'
+
+SECURITY WARNING: keep the secret key used in production secret!
+
 
 ALLOWED_HOSTS = []
 
@@ -58,9 +66,6 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'consulting.urls'
-ASGI_APPLICATION = 'consulting.asgi.application'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -79,21 +84,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'consulting.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'onlineconsult',
-        'USER':'favas',
-        'PASSWORD':'123456',
-        'HOST':'localhost'
-    }
-}
 
 
 # Number of seconds of inactivity before a user is marked offline
@@ -127,20 +121,17 @@ AUTHENTICATION_BACKENDS = [
  
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.linkedin.LinkedinOAuth2',
+
     'django.contrib.auth.backends.ModelBackend',
  
  
 ]
-SOCIAL_AUTH_FACEBOOK_KEY = '2920893384835686'
-SOCIAL_AUTH_FACEBOOK_SECRET ='c68d5637db1c430fbeb44b3c854f7f8c'
+SOCIAL_AUTH_FACEBOOK_KEY = config("FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = config("FACEBOOK_SECRET")
 
-SOCIAL_AUTH_GITHUB_KEY = 'b4fe004a14512d40ccb9'
-SOCIAL_AUTH_GITHUB_SECRET ='3f7db08cc3353a6ef9aa05b1dae93e73ae4c74fd'
+SOCIAL_AUTH_GITHUB_KEY = config("GITHUB_KEY")
+SOCIAL_AUTH_GITHUB_SECRET = config("GITHUB_SECRET")
 
-
-SOCIAL_AUTH_LINKEDIN_OAUTH_KEY = '868obmw4vdv89i'
-SOCIAL_AUTH_LINKEDIN_OAUTH_SECRET ='UNxEoVvBBFPTWwLD'
 
 
 
@@ -166,6 +157,49 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = config('AWS_LOCATION')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+TEMP = os.path.join(BASE_DIR, 'temp')
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+BASE_URL = "http://139.59.31.45"
+
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
@@ -184,12 +218,6 @@ CHANNEL_LAYERS = {
 }
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER='favasm123@gmail.com'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT='587'
-EMAIL_USE_TLS=True
-EMAIL_HOST_PASSWORD='Favu@1997'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
