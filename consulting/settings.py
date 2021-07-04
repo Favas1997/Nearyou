@@ -200,14 +200,6 @@ EMAIL_USE_TLS = True
 BASE_URL = "http://139.59.31.45"
 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT =os.path.join(BASE_DIR,'media')
-
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
