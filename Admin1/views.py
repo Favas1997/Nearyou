@@ -17,7 +17,7 @@ class index(TemplateView):
         user = authenticate(username=username, password =password)
         if user.is_superuser:
             login(request,user)
-            return redirect('home')
+            return JsonResponse('true',safe=False)
         else:
             return render(request, 'admin/login.html')
 class home(TemplateView):

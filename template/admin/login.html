@@ -1,79 +1,116 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html>
-
-
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 May 2021 09:44:38 GMT -->
+<html lang="en">
+{% load static %}
+    
+<!-- Mirrored from doccure-html.dreamguystech.com/template/admin/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:30:21 GMT -->
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta content="width=device-width, initial-scale=1" name="viewport" />
-	<meta name="description" content="Responsive Admin Template" />
-	<meta name="author" content="RedstarHospital" />
-	<title>Redstar Hospital | Bootstrap Responsive Hospital Admin Template</title>
-	<!-- google font -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
-		type="text/css" />
-	<!-- icons -->
-	<link href="{% static 'admin/css/font-awesome.min.css'}" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/iconic/css/material-design-iconic-font.min.css">
-	<!-- bootstrap -->
-	<link href="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<!-- style -->
-	<link rel="stylesheet" href="{% static 'admin/css/extra_pages.css' %}">
-	<!-- favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico" />
-</head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Doccure - Login</title>
+		
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'admin/assets/img/favicon.png' %}">
 
-<body>
-	<div class="limiter">
-		<div class="container-login100 page-background">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="">
-					{% csrf_token %}
-					<span class="login100-form-logo">
-						<img alt="" src="{%static 'admin/img/hospital.png' %}">
-					</span>
-					<span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
-					<div class="wrap-input100 validate-input" data-validate="Enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">
-							Login
-						</button>
-					</div>
-					<div class="text-center p-t-30">
-						<a class="txt1" href="forgot_password.html">
-							Forgot Password?
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- start js include path -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/jquery/jquery.min.js"></script>
-	<!-- bootstrap -->
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/bundles/bootstrap/js/bootstrap.min.js"></script>
-	<script src="http://radixtouch.in/templates/admin/redstar/source/assets/data/login-data.js"></script>
-	<!-- end js include path -->
-</body>
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'admin/assets/css/bootstrap.min.css' %}">
+		
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="{% static 'admin/assets/css/font-awesome.min.css' %}">
+		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}">
+		
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+	
+		<!-- Main Wrapper -->
+        <div class="main-wrapper login-body">
+            <div class="login-wrapper">
+            	<div class="container">
+                	<div class="loginbox">
+                    	<div class="login-left">
+							<img class="img-fluid" src="{% static 'medicalshop/new/download.png' %}" alt="Logo">
+                        </div>
+                        <div class="login-right">
+							<div class="login-right-wrap">
+								<h1>Login</h1>
+							
+								
+								<!-- Form -->
+								<form action>
+									<div class="form-group">
+										<input class="form-control" type="text" placeholder="username" id="username">
+									</div>
+									<div class="form-group">
+										<input class="form-control" type="password" placeholder="Password" id="password">
+									</div>
+									<span id="error"></span>
+									<div class="form-group">
+										<button class="btn btn-primary btn-block" type="button"  id="login-btn">Login</button>
+									</div>
+								</form>
+								<!-- /Form -->
+								
+								
+								  
+								<!-- Social Login -->
+								
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $('#login-btn').click(function(){
+            var username =$('#username').val()
+            var password =$('#password').val()
+            var data = {
+                    'csrfmiddlewaretoken':'{{csrf_token}}',
+                    'username':username,
+                    'password':password,
+                    
+                }
+                if(username==''){
+                    $('#error').html('<h6>Enter your username </h6>')
+                }else if(password==''){
+                    $('#error').html('<h6>Enter  your password</h6>')
+                }else{
+                    console.log('hi')
+                    $.ajax({
+                        url:'/admin/',
+                        method:'POST',
+                        data:data,
+                        dataType:'json',
+                        success:function(data){
+                        console.log(data)
+                            if(data == 'true'){
+                                window.location.replace('home')
+                            } 
+                        }
+                    })
+                }
+            })
+        </script>
 
+		<!-- /Main Wrapper -->
+		
+		<!-- jQuery -->
+        <script src="{% static 'admin/assets/js/jquery-3.2.1.min.js'%}"></script>
+		
+		<!-- Bootstrap Core JS -->
+        <script src="{% static 'admin/assets/js/popper.min.js' %}"></script>
+        <script src="{% static 'admin/assets/js/bootstrap.min.js' %}"></script>
+		
+		<!-- Custom JS -->
+		<script src="{% static 'admin/assets/js/script.js' %}"></script>
+		
+    </body>
 
-<!-- Mirrored from radixtouch.in/templates/admin/redstar/source/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 May 2021 09:44:39 GMT -->
+<!-- Mirrored from doccure-html.dreamguystech.com/template/admin/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 May 2021 07:30:22 GMT -->
 </html>
