@@ -33,7 +33,6 @@ WSGI_APPLICATION = f'{config("PROJECT_NAME")}.wsgi.application'
 
 ASGI_APPLICATION = f'{config("PROJECT_NAME")}.routing.application'
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
