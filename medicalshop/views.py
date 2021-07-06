@@ -51,12 +51,9 @@ def otplogin(request):
         return render(request,'medicalshop/otplogin.html')
 def otpcheck(request):
     if request.method =='POST':
-        print("1111111111111")
         mobile=request.session['mobile']
         shop=MedicalShop.objects.get(mobile=mobile)
-        print(shop.place)
         user1=User.objects.get(id=shop.shop_id)
-        print(user1.email)
         otp_entered = request.POST['otp']
           
         global Otp
@@ -72,21 +69,6 @@ def description(request):
         security=request.POST['security']
         if descriptions.objects.filter(code=security).exists():
             request.session['description']=security
-            # consult=descriptions.objects.get(code=security)
-            # booking=Booking.objects.get(id=consult.booking_id)
-            # doctor=doctors.objects.get(id=booking.doctor_id)
-            # user=User.objects.get(id=doctor.doctor_id)
-            # Patients=patients.objects.get(id=booking.user_id)
-            # patient=User.objects.get(id=Patients.user_id)
-            # data = {
-            #     'description':consult.description,
-            #     'doctor':user.username,
-            #     'time':consult.datetime,
-            #     'patient':patient.username
-
-            # }
-            # print(data)
-            # return JsonResponse(data)
             return JsonResponse('true',safe=False)
         else:
             return JsonResponse('false',safe=False)
@@ -96,5 +78,4 @@ def description(request):
 def getdescription(request):
     security=request.session['description']
     prescription=descriptions.objects.get(code=security)
-    print(prescription.booking.user.user.username)
     return render(request,'medicalshop/prescription.html',{'prescription':prescription})

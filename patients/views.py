@@ -96,24 +96,6 @@ def booking(request,id):
             return render(request,'patients/appointment.html',{'doctor':details,'slots':slot})
     else:
         return redirect('login')
-
-# class booking(Doctordetails):
-#     def get(self,request,id):
-#         details = doctors.objects.get(id=id)
-#         slot=Slot.objects.get(doctor=id)
-#         slot.Slot_decided = ast.literal_eval(slot.Slot_decided)
-#         return render(request,'patients/appointment.html',{'doctor':details,'slots':slot})
-#     def post(self,request,id):
-#         date=request.POST.get('date')
-#         slot=request.POST.get('slot')
-#         check=slot.split("-")
-#         print(check)
-#         code = uuid.uuid4().hex
-#         patient=patients.objects.get(user_id=request.user.id)
-#         Room=chatroom.objects.create(roomcode=code,user=patient,doctor_id=id)
-#         Booking.objects.create(user=patient,doctor_id=id,date=date,slot=slot,amount=200,status='confirm',Room=Room)
-        
-#         return JsonResponse('true', safe=False)
 class paymentView(TemplateView):
     template_name='patients/payment.html'
 
@@ -164,12 +146,10 @@ def videoCall(request,roomCode):
             if patients.objects.filter(user_id=request.user.id).exists():
                 target=patients.objects.get(user_id=request.user.id)
                 status=User.objects.get(id=room.doctor.doctor.id)
-                print(status.is_staff)
                 context = {'roomCode': roomCode, 'target': target,'status':status}
             else:
                 target=doctors.objects.get(doctor_id=request.user.id)
                 doctor=User.objects.get(id=room.user.user.id)
-                print(doctor.is_staff)
                 shop=MedicalShop.objects.all()
                 check=target.doctor_id
                 context = {'roomCode': roomCode, 'target': target,'check':check,'shop':shop,'doctor':doctor}

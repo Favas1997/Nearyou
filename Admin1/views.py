@@ -52,8 +52,6 @@ def AddDoctor(request):
                 return JsonResponse('false1',safe=False)    
             elif doctors.objects.filter(mobile=number).exists():
                 return JsonResponse('false2',safe=False)
-            # elif (password1!=password2):
-            #     return JsonResponse('false3',safe=False)
 
             if password1==password2:
                 user = User.objects.create_user(username=Name, password=password1, email=email,first_name=Name)
@@ -70,7 +68,6 @@ def AddDoctor(request):
             else:
                 return JsonResponse('false3', safe=False)
         else:
-            print("faaaaaaaaaaaaaa")
             return render(request,'admin/add_doctor.html')
     else:
         return redirect('index')

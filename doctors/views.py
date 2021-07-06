@@ -31,23 +31,6 @@ def index(request):
                 return JsonResponse('false',safe=False)
         else:
             return render(request,'doctors/login.html')
-# class index(TemplateView):
-#     template_name='doctors/login.html'
-#     def post(self,request):
-#         username=request.POST.get('username')
-#         password=request.POST.get('password')
-#         user = auth.authenticate(username=username, password=password)
-#         if doctors.objects.filter(doctor=user).exists():
-#             doctor=doctors.objects.get(doctor=user)
-#             if doctor is not None:
-#                 auth.login(request, user)
-#                 user.is_staff=True
-#                 user.save()
-
-#                 request.session['key'] = doctor.id
-#                 return JsonResponse('true',safe=False)
-#         else:  
-#             return JsonResponse('false',safe=False)
 def home(request):
     if request.user.is_authenticated:
         try:

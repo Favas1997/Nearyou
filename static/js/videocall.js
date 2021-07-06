@@ -18,7 +18,7 @@ var webSoc = 'ws://';
 if (CurrentLocation.protocol == 'https:'){
     webSoc = 'wss://';
 }
-var fullLocation = webSoc + CurrentLocation.host + '/ws/videocall/' + roomCode + '/'
+var fullLocation = webSoc + CurrentLocation.host +':8001'+'/ws/videocall/' + roomCode + '/'
 console.log(fullLocation);
 
 //creating a new socket or in other words initiating the video call
@@ -109,11 +109,11 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
             audioTracks[0].enabled = !audioTracks[0].enabled;
 
             if(audioTracks[0].enabled){
-                document.getElementById("mic-btn").src = "http://127.0.0.1:8000/static/images/mic-btn.png";
+                document.getElementById("mic-btn").src = "http://139.59.31.45/static/images/mic-btn.png";
 
                 return;
             }
-            document.getElementById("mic-btn").src = "http://127.0.0.1:8000/static/images/mic-mute-btn.jpg";
+            document.getElementById("mic-btn").src = "http://139.59.31.45/static/images/mic-mute-btn.jpg";
 
         });
 
