@@ -1,12 +1,17 @@
 import patients.routing
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.security.websocket import AllowedHostsOriginValidator
 
 
 application = ProtocolTypeRouter({
-    'websocket': AuthMiddlewareStack(
+    'websocket': AllowedHostsOriginValidator(
+        AuthMiddlewareStack(
         URLRouter(
             patients.routing.websocket_urlpatterns
         )
     ),
+)
 })
+
+ 
